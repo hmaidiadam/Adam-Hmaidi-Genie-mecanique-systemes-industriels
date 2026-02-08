@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Adam Hmaidi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
+    <style>
+        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#3b82f6;transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
+        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
+        .blueprint-bg{background-color:#0f172a;background-image:linear-gradient(rgba(59,130,246,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.07) 1px,transparent 1px),linear-gradient(rgba(59,130,246,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,.03) 1px,transparent 1px);background-size:100px 100px,100px 100px,20px 20px,20px 20px}
+        @keyframes float1{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(20px,-30px) rotate(180deg)}}.float-1{animation:float1 20s ease-in-out infinite}
+        @keyframes float2{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(-30px,20px) rotate(-180deg)}}.float-2{animation:float2 15s ease-in-out infinite}
+        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#0f172a}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-950 antialiased">
+
+    <!-- NAV -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Accueil</a>
+                    <a href="parcours.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Parcours</a>
+                    <a href="experiences.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Expériences</a>
+                    <a href="projets.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Projets</a>
+                    <a href="competences.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Compétences</a>
+                    <a href="contact.html" class="nav-link active text-white text-sm font-medium transition">Contact</a>
+                </div>
+                <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
+            <div class="px-4 py-3 space-y-1">
+                <a href="index.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Accueil</a>
+                <a href="parcours.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Parcours</a>
+                <a href="experiences.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Expériences</a>
+                <a href="projets.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Projets</a>
+                <a href="competences.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Compétences</a>
+                <a href="contact.html" class="block text-white py-2 text-sm font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTACT -->
+    <section class="blueprint-bg min-h-screen flex items-center relative overflow-hidden pt-16">
+        <div class="absolute top-20 right-16 w-40 h-40 border border-blue-500/10 rounded-full float-1 hidden md:block"></div>
+        <div class="absolute bottom-20 left-10 w-28 h-28 border border-blue-500/10 rounded-lg float-2 hidden md:block"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
+            <div class="text-center mb-14 fade-in">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Contact</h1>
+                <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mb-5"></div>
+                <p class="text-slate-400 max-w-lg mx-auto text-lg">N'hésitez pas à me contacter pour toute opportunité, collaboration ou échange autour de l'ingénierie industrielle.</p>
+            </div>
+
+            <!-- CARDS -->
+            <div class="grid sm:grid-cols-3 gap-6 mb-16 fade-in">
+                <a href="mailto:hmaidi.adam@gmail.com" class="group bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition">
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-blue-600/30 transition">
+                        <i class="fas fa-envelope text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2">Email</h3>
+                    <p class="text-blue-300 text-sm break-all">hmaidi.adam@gmail.com</p>
+                </a>
+                <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" rel="noopener" class="group bg-white/5 border border-white/10 rounded-2xl p-8 text-center hover:bg-white/10 transition">
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-blue-600/30 transition">
+                        <i class="fab fa-linkedin text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2">LinkedIn</h3>
+                    <p class="text-blue-300 text-sm">Adam Hmaidi</p>
+                </a>
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8 text-center">
+                    <div class="w-16 h-16 bg-blue-600/20 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-location-dot text-blue-400 text-2xl"></i>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2">Localisation</h3>
+                    <p class="text-blue-300 text-sm">Paris — Île-de-France</p>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="fade-in">
+                <div class="bg-white/5 border border-white/10 rounded-2xl p-8">
+                    <h2 class="text-2xl font-bold text-white mb-6">Envoyer un message</h2>
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-slate-300 text-sm font-medium mb-1.5">Nom</label>
+                                <input type="text" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" placeholder="Votre nom">
+                            </div>
+                            <div>
+                                <label class="block text-slate-300 text-sm font-medium mb-1.5">Email</label>
+                                <input type="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" placeholder="votre@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-slate-300 text-sm font-medium mb-1.5">Objet</label>
+                            <input type="text" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition" placeholder="Sujet de votre message">
+                        </div>
+                        <div>
+                            <label class="block text-slate-300 text-sm font-medium mb-1.5">Message</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition resize-none" placeholder="Votre message..."></textarea>
+                        </div>
+                        <button type="submit" class="inline-flex items-center px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition shadow-lg shadow-blue-600/25">
+                            <i class="fas fa-paper-plane mr-2"></i>Envoyer
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi — Tous droits réservés</p>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:hmaidi.adam@gmail.com" class="text-slate-500 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-slate-500 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');const i=menuBtn.querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
+        const fadeEls=document.querySelectorAll('.fade-in');
+        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+        fadeEls.forEach(el=>obs.observe(el));
+    </script>
+</body>
+</html>
