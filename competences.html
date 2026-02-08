@@ -9,121 +9,133 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
     <style>
-        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#3b82f6;transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
+        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
         .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
-        .skill-fill{width:0;transition:width 1.2s ease-out}.skill-fill.animated{width:var(--w)}
         ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
+        .skill-tag{transition:all .2s ease}.skill-tag:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-white antialiased">
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Accueil</a>
-                    <a href="parcours.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Parcours</a>
-                    <a href="experiences.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Expériences</a>
-                    <a href="projets.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Projets</a>
+                    <a href="index.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Accueil</a>
+                    <a href="parcours.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Parcours</a>
+                    <a href="experiences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Expériences</a>
+                    <a href="projets.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Projets</a>
                     <a href="competences.html" class="nav-link active text-white text-sm font-medium transition">Compétences</a>
-                    <a href="contact.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Contact</a>
+                    <a href="contact.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Contact</a>
                 </div>
                 <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
             <div class="px-4 py-3 space-y-1">
-                <a href="index.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Accueil</a>
-                <a href="parcours.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Parcours</a>
-                <a href="experiences.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Expériences</a>
-                <a href="projets.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Projets</a>
+                <a href="index.html" class="block text-white/70 py-2 text-sm">Accueil</a>
+                <a href="parcours.html" class="block text-white/70 py-2 text-sm">Parcours</a>
+                <a href="experiences.html" class="block text-white/70 py-2 text-sm">Expériences</a>
+                <a href="projets.html" class="block text-white/70 py-2 text-sm">Projets</a>
                 <a href="competences.html" class="block text-white py-2 text-sm font-medium">Compétences</a>
-                <a href="contact.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Contact</a>
+                <a href="contact.html" class="block text-white/70 py-2 text-sm">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER -->
     <header class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pt-28 pb-16">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Compétences</h1>
-            <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mb-5"></div>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-5"></div>
             <p class="text-slate-400 max-w-2xl mx-auto text-lg">Compétences techniques, méthodologiques, outils et langues.</p>
         </div>
     </header>
 
-    <!-- COMPETENCES -->
+    <!-- SKILLS -->
     <section class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-3 gap-8">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8">
+
                 <!-- Techniques -->
-                <div class="fade-in">
-                    <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
-                        <span class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-gears text-blue-600 text-sm"></i></span>
-                        Compétences Techniques
-                    </h3>
-                    <div class="space-y-4">
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Génie Mécanique</span><span class="text-slate-400">85%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:85%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Production Industrielle</span><span class="text-slate-400">85%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:85%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Lean Manufacturing</span><span class="text-slate-400">80%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:80%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Qualité / Métrologie</span><span class="text-slate-400">80%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:80%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">CAO — SolidWorks</span><span class="text-slate-400">75%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:75%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Systèmes ERP</span><span class="text-slate-400">75%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full" style="--w:75%"></div></div></div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center"><i class="fas fa-gears text-blue-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Compétences Techniques</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Génie Mécanique</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Production Industrielle</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Lean Manufacturing</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Qualité & Métrologie</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">CAO — SolidWorks</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Systèmes ERP</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Ergonomie des postes</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Logistique industrielle</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Lecture de plans</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 text-sm font-semibold rounded-xl border border-blue-100">Cotation ISO / GPS</span>
                     </div>
                 </div>
 
                 <!-- Méthodologiques -->
-                <div class="fade-in">
-                    <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
-                        <span class="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-diagram-project text-emerald-600 text-sm"></i></span>
-                        Méthodologiques
-                    </h3>
-                    <div class="space-y-4">
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Analyse de processus</span><span class="text-slate-400">85%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="--w:85%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Gestion de projet</span><span class="text-slate-400">80%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="--w:80%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Traçabilité industrielle</span><span class="text-slate-400">80%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="--w:80%"></div></div></div>
-                        <div><div class="flex justify-between text-sm mb-1"><span class="font-medium text-slate-700">Rédaction technique</span><span class="text-slate-400">80%</span></div><div class="w-full h-2 bg-slate-200 rounded-full overflow-hidden"><div class="skill-fill h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full" style="--w:80%"></div></div></div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center"><i class="fas fa-diagram-project text-emerald-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Méthodologiques</h3>
                     </div>
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 mt-8 flex items-center">
-                        <span class="w-8 h-8 bg-violet-100 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-screwdriver-wrench text-violet-600 text-sm"></i></span>
-                        Outils
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-lg font-medium border border-slate-200">SolidWorks</span>
-                        <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-lg font-medium border border-slate-200">GestProd</span>
-                        <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-lg font-medium border border-slate-200">Sellsy</span>
-                        <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-lg font-medium border border-slate-200">Pack Office</span>
-                        <span class="px-3 py-1.5 bg-white text-slate-700 text-sm rounded-lg font-medium border border-slate-200">WinDev</span>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Analyse de processus</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Gestion de projet</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Traçabilité industrielle</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Rédaction technique</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Cahier des charges</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Kaizen / 5S / PDCA</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Résolution de problèmes</span>
+                        <span class="skill-tag px-4 py-2 bg-emerald-50 text-emerald-700 text-sm font-semibold rounded-xl border border-emerald-100">Animation de chantiers</span>
+                    </div>
+                </div>
+
+                <!-- Outils -->
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-violet-100 rounded-xl flex items-center justify-center"><i class="fas fa-screwdriver-wrench text-violet-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Outils & Logiciels</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2.5">
+                        <span class="skill-tag px-4 py-2 bg-violet-50 text-violet-700 text-sm font-semibold rounded-xl border border-violet-100"><i class="fas fa-cube mr-1.5 text-xs"></i>SolidWorks</span>
+                        <span class="skill-tag px-4 py-2 bg-violet-50 text-violet-700 text-sm font-semibold rounded-xl border border-violet-100"><i class="fas fa-database mr-1.5 text-xs"></i>GestProd (ERP)</span>
+                        <span class="skill-tag px-4 py-2 bg-violet-50 text-violet-700 text-sm font-semibold rounded-xl border border-violet-100"><i class="fas fa-chart-pie mr-1.5 text-xs"></i>Sellsy (CRM)</span>
+                        <span class="skill-tag px-4 py-2 bg-violet-50 text-violet-700 text-sm font-semibold rounded-xl border border-violet-100"><i class="fas fa-file-excel mr-1.5 text-xs"></i>Pack Office</span>
+                        <span class="skill-tag px-4 py-2 bg-violet-50 text-violet-700 text-sm font-semibold rounded-xl border border-violet-100"><i class="fas fa-code mr-1.5 text-xs"></i>WinDev</span>
                     </div>
                 </div>
 
                 <!-- Langues -->
-                <div class="fade-in">
-                    <h3 class="text-lg font-bold text-slate-900 mb-6 flex items-center">
-                        <span class="w-8 h-8 bg-amber-100 rounded-lg flex items-center justify-center mr-3"><i class="fas fa-language text-amber-600 text-sm"></i></span>
-                        Langues
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200">
-                            <div><p class="font-bold text-slate-800">Français</p><p class="text-slate-500 text-sm">Langue maternelle</p></div>
-                            <div class="flex gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div></div>
+                <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm fade-in">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center"><i class="fas fa-language text-amber-600"></i></div>
+                        <h3 class="text-lg font-bold text-slate-900">Langues</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl">
+                            <div class="flex items-center gap-3"><span class="text-xl">🇫🇷</span><span class="font-semibold text-slate-800">Français</span></div>
+                            <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md">Langue maternelle</span>
                         </div>
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200">
-                            <div><p class="font-bold text-slate-800">Arabe</p><p class="text-slate-500 text-sm">Courant</p></div>
-                            <div class="flex gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div></div>
+                        <div class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl">
+                            <div class="flex items-center gap-3"><span class="text-xl">🇸🇦</span><span class="font-semibold text-slate-800">Arabe</span></div>
+                            <span class="text-xs font-bold text-blue-700 bg-blue-100 px-2.5 py-1 rounded-md">Courant</span>
                         </div>
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200">
-                            <div><p class="font-bold text-slate-800">Anglais</p><p class="text-slate-500 text-sm">Niveau B2</p></div>
-                            <div class="flex gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div></div>
+                        <div class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl">
+                            <div class="flex items-center gap-3"><span class="text-xl">🇬🇧</span><span class="font-semibold text-slate-800">Anglais</span></div>
+                            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-md">Niveau B2</span>
                         </div>
-                        <div class="flex items-center justify-between p-4 bg-white rounded-xl border border-slate-200">
-                            <div><p class="font-bold text-slate-800">Italien</p><p class="text-slate-500 text-sm">Niveau A2</p></div>
-                            <div class="flex gap-1"><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-blue-600 rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div><div class="w-3 h-3 bg-slate-200 rounded-full"></div></div>
+                        <div class="flex items-center justify-between p-3.5 bg-slate-50 rounded-xl">
+                            <div class="flex items-center gap-3"><span class="text-xl">🇮🇹</span><span class="font-semibold text-slate-800">Italien</span></div>
+                            <span class="text-xs font-bold text-amber-700 bg-amber-100 px-2.5 py-1 rounded-md">Niveau A2</span>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
@@ -132,35 +144,35 @@
     <section class="py-20 lg:py-28 bg-white">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-14 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Centres d'Intérêt</h2>
-                <div class="w-16 h-1 bg-blue-600 mx-auto rounded-full"></div>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">Centres d'Intérêt</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full"></div>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 fade-in">
                 <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
                     <div class="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-blue-100 transition"><i class="fas fa-car text-blue-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Automobile</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-sky-200 transition group">
                     <div class="w-14 h-14 bg-sky-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-sky-100 transition"><i class="fas fa-plane text-sky-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Aéronautique</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-slate-300 transition group">
                     <div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-slate-200 transition"><i class="fas fa-gears text-slate-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Mécanique</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-amber-200 transition group">
                     <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-amber-100 transition"><i class="fas fa-truck text-amber-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Transport</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-orange-200 transition group">
                     <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-orange-100 transition"><i class="fas fa-helmet-safety text-orange-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Génie Civil</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-emerald-200 transition group">
                     <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-emerald-100 transition"><i class="fas fa-globe-americas text-emerald-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Voyages</p>
                 </div>
-                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-blue-200 transition group col-span-2 sm:col-span-1">
+                <div class="bg-slate-50 rounded-2xl p-6 text-center border border-slate-200 hover:shadow-lg hover:border-violet-200 transition group col-span-2 sm:col-span-1">
                     <div class="w-14 h-14 bg-violet-50 rounded-2xl flex items-center justify-center mx-auto mb-3 group-hover:bg-violet-100 transition"><i class="fas fa-spa text-violet-600 text-xl"></i></div>
                     <p class="font-semibold text-slate-800 text-sm">Bien-être</p>
                 </div>
@@ -168,11 +180,10 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="bg-slate-950 py-8 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi — Tous droits réservés</p>
+                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi</p>
                 <div class="flex items-center gap-4">
                     <a href="mailto:hmaidi.adam@gmail.com" class="text-slate-500 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
                     <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-slate-500 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
@@ -182,14 +193,9 @@
     </footer>
 
     <script>
-        const menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');const i=menuBtn.querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
-        const fadeEls=document.querySelectorAll('.fade-in');
+        document.getElementById('menu-btn').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden');const i=document.getElementById('menu-btn').querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
         const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-        fadeEls.forEach(el=>obs.observe(el));
-        const skillBars=document.querySelectorAll('.skill-fill');
-        const sObs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('animated');});},{threshold:.5});
-        skillBars.forEach(b=>sObs.observe(b));
+        document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
     </script>
 </body>
 </html>

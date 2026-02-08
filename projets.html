@@ -9,166 +9,173 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
     <style>
-        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:#3b82f6;transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
+        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
         .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
-        .project-detail{max-height:0;overflow:hidden;transition:max-height .5s ease-out}.project-detail.open{max-height:3000px;transition:max-height .8s ease-in}
-        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
         html{scroll-padding-top:80px}
+        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
+        .highlight{animation:glow 2s ease-out}@keyframes glow{0%{box-shadow:0 0 0 0 rgba(59,130,246,.4)}70%{box-shadow:0 0 0 12px rgba(59,130,246,0)}100%{box-shadow:none}}
+        .step-label{min-width:110px}
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-white antialiased">
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Accueil</a>
-                    <a href="parcours.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Parcours</a>
-                    <a href="experiences.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Expériences</a>
+                    <a href="index.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Accueil</a>
+                    <a href="parcours.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Parcours</a>
+                    <a href="experiences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Expériences</a>
                     <a href="projets.html" class="nav-link active text-white text-sm font-medium transition">Projets</a>
-                    <a href="competences.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Compétences</a>
-                    <a href="contact.html" class="nav-link text-white/80 hover:text-white text-sm font-medium transition">Contact</a>
+                    <a href="competences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Compétences</a>
+                    <a href="contact.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Contact</a>
                 </div>
                 <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
             </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
             <div class="px-4 py-3 space-y-1">
-                <a href="index.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Accueil</a>
-                <a href="parcours.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Parcours</a>
-                <a href="experiences.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Expériences</a>
+                <a href="index.html" class="block text-white/70 py-2 text-sm">Accueil</a>
+                <a href="parcours.html" class="block text-white/70 py-2 text-sm">Parcours</a>
+                <a href="experiences.html" class="block text-white/70 py-2 text-sm">Expériences</a>
                 <a href="projets.html" class="block text-white py-2 text-sm font-medium">Projets</a>
-                <a href="competences.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Compétences</a>
-                <a href="contact.html" class="block text-white/80 hover:text-white py-2 text-sm font-medium">Contact</a>
+                <a href="competences.html" class="block text-white/70 py-2 text-sm">Compétences</a>
+                <a href="contact.html" class="block text-white/70 py-2 text-sm">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- HEADER -->
     <header class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pt-28 pb-16">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Projets Techniques</h1>
-            <div class="w-16 h-1 bg-blue-500 mx-auto rounded-full mb-5"></div>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg">Chaque projet est structuré en mini-rapport d'ingénieur. Cliquez pour développer les détails.</p>
+            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-5"></div>
+            <p class="text-slate-400 max-w-2xl mx-auto text-lg">Chaque projet est structuré en mini-rapport d'ingénieur.</p>
         </div>
     </header>
 
-    <!-- PROJETS -->
     <section class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-            <!-- P1 — ERP -->
-            <div id="p1" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-md transition">
-                <button onclick="toggleProject('p1-detail')" class="w-full p-6 md:p-8 text-left flex items-start justify-between gap-4 focus:outline-none">
-                    <div class="flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded">Metaflon</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">Ingénierie Système</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Modernisation de l'ERP industriel (GestProd — WinDev)</h3>
-                        <p class="text-slate-500 text-sm">Cahier des charges complet pour la refonte du logiciel de gestion — stocks, traçabilité, production, expédition, facturation.</p>
+            <!-- ====== P1 — ERP ====== -->
+            <article id="p1" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-lg transition">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-md">Metaflon</span>
+                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">Ingénierie Système</span>
                     </div>
-                    <i class="fas fa-chevron-down text-blue-500 mt-1 transition-transform duration-300" id="p1-detail-icon"></i>
-                </button>
-                <div class="project-detail" id="p1-detail">
-                    <div class="px-6 md:px-8 pb-8 pt-2 border-t border-slate-100 space-y-5">
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-crosshairs mr-1.5"></i>Contexte</h4><p class="text-slate-600 text-sm leading-relaxed">PME spécialisée dans la fabrication de raccords et flexibles industriels. Le logiciel interne GestProd (WinDev) était vieillissant et ne répondait plus aux besoins opérationnels croissants.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-question-circle mr-1.5"></i>Problématique</h4><p class="text-slate-600 text-sm leading-relaxed">Comment moderniser le SI industriel pour répondre aux exigences de traçabilité matière, gestion avancée des stocks et fluidification des processus ?</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-magnifying-glass mr-1.5"></i>Analyse</h4><p class="text-slate-600 text-sm leading-relaxed">Audit complet des processus par service. Cartographie des flux d'information. Entretiens avec les utilisateurs clés.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-triangle-exclamation mr-1.5"></i>Contraintes</h4><p class="text-slate-600 text-sm leading-relaxed">Budget PME. Continuité d'activité impérative. Adaptation au parc matériel existant. Interconnexion Sellsy. Formation d'utilisateurs variés.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-lightbulb mr-1.5"></i>Solution</h4><p class="text-slate-600 text-sm leading-relaxed">Cahier des charges structuré par modules : gestion avancée des stocks, traçabilité matière par numéro de coulée, gestion des chutes et réservation, seuils d'alerte automatiques, logique OF / OP, QR codes, modules production, assemblage, expédition et facturation.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-chart-column mr-1.5"></i>Résultats</h4><p class="text-slate-600 text-sm leading-relaxed">Cahier des charges livré et validé par la direction, couvrant l'ensemble du périmètre fonctionnel.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-arrows-rotate mr-1.5"></i>Limites</h4><p class="text-slate-600 text-sm leading-relaxed">Phase de développement et déploiement à venir. Conduite du changement à anticiper. Possibilité d'intégrer des modules analytiques.</p></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">Modernisation de l'ERP industriel (GestProd — WinDev)</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Cahier des charges complet pour la refonte du logiciel de gestion — stocks, traçabilité, production, expédition, facturation.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md text-center"><i class="fas fa-crosshairs mr-1"></i>Contexte</span><p class="text-slate-600 text-sm leading-relaxed">PME spécialisée dans la fabrication de raccords et flexibles industriels. Le logiciel interne GestProd (WinDev) était vieillissant et ne répondait plus aux besoins opérationnels.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md text-center"><i class="fas fa-question-circle mr-1"></i>Problème</span><p class="text-slate-600 text-sm leading-relaxed">Comment moderniser le SI pour répondre aux exigences de traçabilité matière, gestion avancée des stocks et fluidification des processus ?</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-bold rounded-md text-center"><i class="fas fa-magnifying-glass mr-1"></i>Analyse</span><p class="text-slate-600 text-sm leading-relaxed">Audit complet des processus par service. Cartographie des flux d'information. Entretiens avec les utilisateurs clés.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md text-center"><i class="fas fa-triangle-exclamation mr-1"></i>Contraintes</span><p class="text-slate-600 text-sm leading-relaxed">Budget PME. Continuité d'activité impérative. Adaptation au parc matériel existant. Interconnexion Sellsy. Formation d'utilisateurs variés.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md text-center"><i class="fas fa-lightbulb mr-1"></i>Solution</span><p class="text-slate-600 text-sm leading-relaxed">Cahier des charges structuré par modules : gestion avancée des stocks, traçabilité matière par numéro de coulée, gestion des chutes et réservation, seuils d'alerte automatiques, logique OF/OP, QR codes, modules production, assemblage, expédition et facturation.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-md text-center"><i class="fas fa-chart-column mr-1"></i>Résultats</span><p class="text-slate-600 text-sm leading-relaxed">Cahier des charges livré et validé par la direction, couvrant l'ensemble du périmètre fonctionnel.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-50 text-slate-500 text-xs font-bold rounded-md text-center"><i class="fas fa-arrows-rotate mr-1"></i>Limites</span><p class="text-slate-600 text-sm leading-relaxed">Phase de développement et déploiement à venir. Conduite du changement à anticiper.</p></div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- P2 — AGV -->
-            <div id="p2" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-md transition">
-                <button onclick="toggleProject('p2-detail')" class="w-full p-6 md:p-8 text-left flex items-start justify-between gap-4 focus:outline-none">
-                    <div class="flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">AGCO</span>
-                            <span class="px-2 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded">Logistique / Automatisation</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Préparation à l'intégration d'AGV en zones de production</h3>
-                        <p class="text-slate-500 text-sm">Étude préparatoire pour l'introduction de véhicules à guidage automatique dans les zones de montage.</p>
+            <!-- ====== P2 — AGV ====== -->
+            <article id="p2" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-lg transition">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">AGCO</span>
+                        <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-md">Logistique / Automatisation</span>
                     </div>
-                    <i class="fas fa-chevron-down text-blue-500 mt-1 transition-transform duration-300" id="p2-detail-icon"></i>
-                </button>
-                <div class="project-detail" id="p2-detail">
-                    <div class="px-6 md:px-8 pb-8 pt-2 border-t border-slate-100 space-y-5">
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-crosshairs mr-1.5"></i>Contexte</h4><p class="text-slate-600 text-sm leading-relaxed">Site de production grande série chez AGCO Massey Ferguson avec flux logistiques complexes.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-question-circle mr-1.5"></i>Problématique</h4><p class="text-slate-600 text-sm leading-relaxed">Comment optimiser les flux de pièces et réduire les déplacements manuels ?</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-magnifying-glass mr-1.5"></i>Analyse</h4><p class="text-slate-600 text-sm leading-relaxed">Cartographie des flux existants. Identification des zones à fort potentiel d'automatisation. Analyse distances, fréquences et volumes.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-triangle-exclamation mr-1.5"></i>Contraintes</h4><p class="text-slate-600 text-sm leading-relaxed">Sécurité opérateurs. Intégration sans interruption. Compatibilité parc existant. Normes sécurité machines.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-lightbulb mr-1.5"></i>Solution</h4><p class="text-slate-600 text-sm leading-relaxed">Étude préparatoire complète : parcours optimaux, zones de circulation AGV, recommandations d'implantation, interfaces homme-machine.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-chart-column mr-1.5"></i>Résultats</h4><p class="text-slate-600 text-sm leading-relaxed">Dossier préparatoire livré. Cartographie validée et recommandations formulées.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-arrows-rotate mr-1.5"></i>Limites</h4><p class="text-slate-600 text-sm leading-relaxed">Déploiement à planifier. ROI à confirmer après mise en service.</p></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">Préparation à l'intégration d'AGV en zones de production</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Étude préparatoire pour l'introduction de véhicules à guidage automatique dans les zones de montage.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md text-center"><i class="fas fa-crosshairs mr-1"></i>Contexte</span><p class="text-slate-600 text-sm leading-relaxed">Site de production grande série chez AGCO Massey Ferguson avec flux logistiques complexes.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md text-center"><i class="fas fa-question-circle mr-1"></i>Problème</span><p class="text-slate-600 text-sm leading-relaxed">Comment optimiser les flux de pièces et réduire les déplacements manuels ?</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-violet-50 text-violet-700 text-xs font-bold rounded-md text-center"><i class="fas fa-magnifying-glass mr-1"></i>Analyse</span><p class="text-slate-600 text-sm leading-relaxed">Cartographie des flux existants. Identification des zones à fort potentiel d'automatisation. Analyse distances, fréquences et volumes.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-amber-50 text-amber-700 text-xs font-bold rounded-md text-center"><i class="fas fa-triangle-exclamation mr-1"></i>Contraintes</span><p class="text-slate-600 text-sm leading-relaxed">Sécurité opérateurs. Intégration sans interruption. Compatibilité parc existant. Normes sécurité machines.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md text-center"><i class="fas fa-lightbulb mr-1"></i>Solution</span><p class="text-slate-600 text-sm leading-relaxed">Étude préparatoire complète : parcours optimaux, zones de circulation AGV, recommandations d'implantation, interfaces homme-machine.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-md text-center"><i class="fas fa-chart-column mr-1"></i>Résultats</span><p class="text-slate-600 text-sm leading-relaxed">Dossier préparatoire livré. Cartographie validée et recommandations formulées.</p></div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- P3 — KAIZEN -->
-            <div id="p3" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-md transition">
-                <button onclick="toggleProject('p3-detail')" class="w-full p-6 md:p-8 text-left flex items-start justify-between gap-4 focus:outline-none">
-                    <div class="flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded">AGCO</span>
-                            <span class="px-2 py-1 bg-violet-100 text-violet-700 text-xs font-bold rounded">Lean Manufacturing</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Chantiers Kaizen & 5S — Amélioration continue</h3>
-                        <p class="text-slate-500 text-sm">Animation de chantiers sur les postes de travail et chaînes de montage, avec formation du personnel.</p>
+            <!-- ====== P3 — KAIZEN ====== -->
+            <article id="p3" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-lg transition">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">AGCO</span>
+                        <span class="px-2.5 py-1 bg-violet-100 text-violet-700 text-xs font-bold rounded-md">Lean Manufacturing</span>
                     </div>
-                    <i class="fas fa-chevron-down text-blue-500 mt-1 transition-transform duration-300" id="p3-detail-icon"></i>
-                </button>
-                <div class="project-detail" id="p3-detail">
-                    <div class="px-6 md:px-8 pb-8 pt-2 border-t border-slate-100 space-y-5">
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-crosshairs mr-1.5"></i>Contexte</h4><p class="text-slate-600 text-sm leading-relaxed">Production grande série. Objectif permanent d'optimisation de la performance et des conditions de travail.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-question-circle mr-1.5"></i>Problématique</h4><p class="text-slate-600 text-sm leading-relaxed">Comment améliorer l'organisation des postes, réduire les gaspillages et impliquer les opérateurs ?</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-lightbulb mr-1.5"></i>Solution</h4><p class="text-slate-600 text-sm leading-relaxed">Chantiers structurés : formation Lean/ergonomie, management visuel, standardisation des postes, réorganisation du stockage bord de ligne.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-chart-column mr-1.5"></i>Résultats</h4><p class="text-slate-600 text-sm leading-relaxed">Meilleure organisation des postes. Réduction des temps de recherche. Meilleure ergonomie. Adhésion progressive des équipes.</p></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">Chantiers Kaizen & 5S — Amélioration continue</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Animation de chantiers sur les postes de travail et chaînes de montage, avec formation du personnel.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md text-center"><i class="fas fa-crosshairs mr-1"></i>Contexte</span><p class="text-slate-600 text-sm leading-relaxed">Production grande série. Objectif permanent d'optimisation de la performance et des conditions de travail.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-md text-center"><i class="fas fa-question-circle mr-1"></i>Problème</span><p class="text-slate-600 text-sm leading-relaxed">Comment améliorer l'organisation des postes, réduire les gaspillages et impliquer les opérateurs ?</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md text-center"><i class="fas fa-lightbulb mr-1"></i>Solution</span><p class="text-slate-600 text-sm leading-relaxed">Chantiers structurés : formation Lean/ergonomie, management visuel, standardisation des postes, réorganisation du stockage bord de ligne.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-md text-center"><i class="fas fa-chart-column mr-1"></i>Résultats</span><p class="text-slate-600 text-sm leading-relaxed">Meilleure organisation. Réduction des temps de recherche. Meilleure ergonomie. Adhésion progressive des équipes.</p></div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- P4 — CAO -->
-            <div id="p4" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-md transition">
-                <button onclick="toggleProject('p4-detail')" class="w-full p-6 md:p-8 text-left flex items-start justify-between gap-4 focus:outline-none">
-                    <div class="flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded">Metaflon</span>
-                            <span class="px-2 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded">Conception Mécanique</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">CAO & Migration des plans techniques (SolidWorks)</h3>
-                        <p class="text-slate-500 text-sm">Modernisation et harmonisation de la base documentaire technique.</p>
+            <!-- ====== P4 — CAO ====== -->
+            <article id="p4" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-lg transition">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-md">Metaflon</span>
+                        <span class="px-2.5 py-1 bg-cyan-100 text-cyan-700 text-xs font-bold rounded-md">Conception Mécanique</span>
                     </div>
-                    <i class="fas fa-chevron-down text-blue-500 mt-1 transition-transform duration-300" id="p4-detail-icon"></i>
-                </button>
-                <div class="project-detail" id="p4-detail">
-                    <div class="px-6 md:px-8 pb-8 pt-2 border-t border-slate-100 space-y-5">
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-crosshairs mr-1.5"></i>Contexte</h4><p class="text-slate-600 text-sm leading-relaxed">PME avec un historique de plans hétérogènes, source d'erreurs et de pertes de temps.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-lightbulb mr-1.5"></i>Solution</h4><p class="text-slate-600 text-sm leading-relaxed">Modélisation SolidWorks des nouvelles références. Mise à jour progressive. Arborescence documentaire avec conventions uniformes.</p></div>
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-chart-column mr-1.5"></i>Résultats</h4><p class="text-slate-600 text-sm leading-relaxed">Nouvelles références opérationnelles. Plans harmonisés. Base documentaire structurée.</p></div>
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">CAO & Migration des plans techniques (SolidWorks)</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Modernisation et harmonisation de la base documentaire technique.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md text-center"><i class="fas fa-crosshairs mr-1"></i>Contexte</span><p class="text-slate-600 text-sm leading-relaxed">PME avec un historique de plans hétérogènes, source d'erreurs et de pertes de temps.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md text-center"><i class="fas fa-lightbulb mr-1"></i>Solution</span><p class="text-slate-600 text-sm leading-relaxed">Modélisation SolidWorks des nouvelles références. Mise à jour progressive. Arborescence documentaire avec conventions uniformes.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-md text-center"><i class="fas fa-chart-column mr-1"></i>Résultats</span><p class="text-slate-600 text-sm leading-relaxed">Nouvelles références opérationnelles. Plans harmonisés. Base documentaire structurée.</p></div>
                     </div>
                 </div>
-            </div>
+            </article>
 
-            <!-- P5 — METROLOGIE -->
-            <div id="p5" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-md transition">
-                <button onclick="toggleProject('p5-detail')" class="w-full p-6 md:p-8 text-left flex items-start justify-between gap-4 focus:outline-none">
-                    <div class="flex-1">
-                        <div class="flex flex-wrap gap-2 mb-3">
-                            <span class="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded">Metaflon</span>
-                            <span class="px-2 py-1 bg-rose-100 text-rose-700 text-xs font-bold rounded">Qualité / Métrologie</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">Mise en place du système de métrologie & qualité</h3>
-                        <p class="text-slate-500 text-sm">Structuration de la vérification périodique des instruments, conformité ISO et procédures qualité.</p>
+            <!-- ====== P5 — METROLOGIE ====== -->
+            <article id="p5" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden fade-in hover:shadow-lg transition">
+                <div class="p-6 md:p-8">
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="px-2.5 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-md">Metaflon</span>
+                        <span class="px-2.5 py-1 bg-rose-100 text-rose-700 text-xs font-bold rounded-md">Qualité / Métrologie</span>
                     </div>
-                    <i class="fas fa-chevron-down text-blue-500 mt-1 transition-transform duration-300" id="p5-detail-icon"></i>
-                </button>
-                <div class="project-detail" id="p5-detail">
-                    <div class="px-6 md:px-8 pb-8 pt-2 border-t border-slate-100 space-y-5">
-                        <div><h4 class="font-bold text-blue-700 text-sm mb-1"><i class="fas fa-crosshairs mr-1.5"></i>Contexte</h4><p class="text-slate-600 text-sm leading-relaxed">Atelier soumis à des exigences de conformité dimensionnelle (ISO 1502). Instruments non tous
+                    <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-3">Mise en place du système de métrologie & qualité</h3>
+                    <p class="text-slate-500 mb-6 leading-relaxed">Structuration de la vérification périodique des instruments, conformité ISO et procédures qualité.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md text-center"><i class="fas fa-crosshairs mr-1"></i>Contexte</span><p class="text-slate-600 text-sm leading-relaxed">Atelier soumis à des exigences de conformité dimensionnelle (ISO 1502). Instruments non tous suivis formellement.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md text-center"><i class="fas fa-lightbulb mr-1"></i>Solution</span><p class="text-slate-600 text-sm leading-relaxed">Procédure de vérification périodique. Registre centralisé. Actions correctives. Supports visuels et procédures documentées.</p></div>
+                        <div class="flex items-start gap-3"><span class="step-label flex-shrink-0 px-2.5 py-1 bg-green-50 text-green-700 text-xs font-bold rounded-md text-center"><i class="fas fa-chart-column mr-1"></i>Résultats</span><p class="text-slate-600 text-sm leading-relaxed">Registre opérationnel. Conformité restaurée. Sensibilisation de l'atelier.</p></div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi</p>
+                <div class="flex items-center gap-4">
+                    <a href="mailto:hmaidi.adam@gmail.com" class="text-slate-500 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-slate-500 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden');const i=document.getElementById('menu-btn').querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
+        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+        // Highlight target from hash
+        if(window.location.hash){const t=document.querySelector(window.location.hash);if(t){setTimeout(()=>{t.scrollIntoView({behavior:'smooth',block:'start'});t.classList.add('highlight');},300);}}
+    </script>
+</body>
+</html>
