@@ -1,151 +1,345 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcours | Adam Hmaidi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
-    <style>
-        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
-        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#f1f5f9}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parcours | Adam Hmaidi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Timeline ===== */
+    .timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, #1b6ca8, #2389d4, #64b5f6);
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    /* ===== Timeline Item ===== */
+    .timeline-item {
+      position: relative;
+      width: 50%;
+      padding: 0 3rem 3rem;
+      box-sizing: border-box;
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+      text-align: right;
+      padding-right: 3.5rem;
+      padding-left: 1rem;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+      text-align: left;
+      padding-left: 3.5rem;
+      padding-right: 1rem;
+    }
+
+    /* Dot on timeline */
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      top: 0.5rem;
+      width: 16px; height: 16px;
+      background: #fff;
+      border: 3px solid #1b6ca8;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    .timeline-item:nth-child(odd)::after {
+      right: -8px;
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -8px;
+    }
+    .timeline-item.current::after {
+      background: #1b6ca8;
+      box-shadow: 0 0 0 5px rgba(27,108,168,0.2);
+      animation: pulse-timeline 2s ease-in-out infinite;
+    }
+    @keyframes pulse-timeline {
+      0%, 100% { box-shadow: 0 0 0 5px rgba(27,108,168,0.2); }
+      50% { box-shadow: 0 0 0 10px rgba(27,108,168,0.08); }
+    }
+
+    /* ===== Timeline Card ===== */
+    .timeline-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 1.8rem;
+      transition: all 0.35s ease;
+      box-shadow: 0 2px 12px rgba(9,23,40,0.04);
+    }
+    .timeline-card:hover {
+      border-color: #1b6ca8;
+      box-shadow: 0 8px 30px rgba(27,108,168,0.1);
+      transform: translateY(-4px);
+    }
+
+    /* Logo */
+    .timeline-logo {
+      width: 70px; height: 70px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 8px;
+      margin-bottom: 1rem;
+    }
+    .timeline-item:nth-child(odd) .timeline-logo {
+      margin-left: auto;
+    }
+
+    /* Logo hover cliquable */
+    a > .timeline-logo {
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    a > .timeline-logo:hover {
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px rgba(27,108,168,0.15);
+    }
+
+    /* Date badge */
+    .timeline-date {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      background: linear-gradient(135deg, rgba(27,108,168,0.08), rgba(35,137,212,0.08));
+      color: #1b6ca8;
+      font-size: 0.78rem;
+      font-weight: 700;
+      border-radius: 20px;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.3px;
+    }
+    .timeline-item.current .timeline-date {
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      color: #fff;
+    }
+
+    /* Text */
+    .timeline-card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #091728;
+      margin-bottom: 0.25rem;
+      line-height: 1.3;
+    }
+    .timeline-card .school {
+      font-size: 0.88rem;
+      color: #1b6ca8;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+    .timeline-card p {
+      font-size: 0.88rem;
+      color: #64748b;
+      line-height: 1.7;
+    }
+
+    /* Tags */
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.8rem;
+    }
+    .timeline-item:nth-child(odd) .timeline-tags {
+      justify-content: flex-end;
+    }
+    .timeline-tag {
+      padding: 0.25rem 0.65rem;
+      background: #f0f5fc;
+      color: #1b6ca8;
+      font-size: 0.73rem;
+      font-weight: 600;
+      border-radius: 6px;
+      border: 1px solid rgba(27,108,168,0.1);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .timeline::before {
+        left: 24px;
+      }
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 3.5rem !important;
+        padding-right: 1rem !important;
+      }
+      .timeline-item::after {
+        left: 16px !important;
+        right: auto !important;
+      }
+      .timeline-item:nth-child(odd) .timeline-logo {
+        margin-left: 0;
+      }
+      .timeline-item:nth-child(odd) .timeline-tags {
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans text-slate-800 bg-white antialiased">
+<body>
 
-    <!-- NAV -->
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-xl shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Accueil</a>
-                    <a href="parcours.html" class="nav-link active text-white text-sm font-medium transition">Parcours</a>
-                    <a href="experiences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Expériences</a>
-                    <a href="projets.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Projets</a>
-                    <a href="competences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Compétences</a>
-                    <a href="contact.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Contact</a>
-                </div>
-                <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
-            </div>
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">A<span>.</span>H</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="parcours.html" class="active">Parcours</a>
+      <a href="experiences.html">Expériences</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <h1>Parcours</h1>
+    <p>Mon parcours académique, de la découverte de l'informatique à l'école d'ingénieurs.</p>
+  </header>
+
+  <!-- TIMELINE -->
+  <section class="section">
+    <div class="timeline">
+
+      <!-- 1 — CNAM (actuel) -->
+      <div class="timeline-item current">
+        <div class="timeline-card">
+          <a href="https://ecole-ingenieur.cnam.fr" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-cnam.png" alt="Le CNAM" class="timeline-logo">
+          </a>
+          <span class="timeline-date">2025 — Présent</span>
+          <h3>Cycle Ingénieur Informatique</h3>
+          <p class="school">Le CNAM — École d'Ingénieurs</p>
+          <p>
+            Formation d'ingénieur en informatique en alternance.
+            Approfondissement des compétences en architecture logicielle,
+            gestion de projets et systèmes d'information.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Alternance</span>
+            <span class="timeline-tag">Architecture SI</span>
+            <span class="timeline-tag">Gestion de projet</span>
+          </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 backdrop-blur-xl border-t border-white/10">
-            <div class="px-4 py-3 space-y-1">
-                <a href="index.html" class="block text-white/70 hover:text-white py-2 text-sm">Accueil</a>
-                <a href="parcours.html" class="block text-white py-2 text-sm font-medium">Parcours</a>
-                <a href="experiences.html" class="block text-white/70 hover:text-white py-2 text-sm">Expériences</a>
-                <a href="projets.html" class="block text-white/70 hover:text-white py-2 text-sm">Projets</a>
-                <a href="competences.html" class="block text-white/70 hover:text-white py-2 text-sm">Compétences</a>
-                <a href="contact.html" class="block text-white/70 hover:text-white py-2 text-sm">Contact</a>
-            </div>
+      </div>
+
+      <!-- 2 — ENCPB -->
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <a href="https://encpb.org/" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-encpb.png" alt="ENCPB Lycée Pierre-Gilles de Gennes" class="timeline-logo">
+          </a>
+          <span class="timeline-date">2022 — 2024</span>
+          <h3>BTS SIO — Option SLAM</h3>
+          <p class="school">ENCPB — Lycée Pierre-Gilles de Gennes, Paris</p>
+          <p>
+            Solutions Logicielles et Applications Métiers.
+            Développement d'applications, bases de données,
+            cybersécurité et gestion de projets informatiques.
+            Stages en entreprise.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Java</span>
+            <span class="timeline-tag">SQL</span>
+            <span class="timeline-tag">PHP</span>
+            <span class="timeline-tag">Cybersécurité</span>
+            <span class="timeline-tag">Projet</span>
+          </div>
         </div>
-    </nav>
+      </div>
 
-    <!-- HEADER -->
-    <header class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 pt-28 pb-16">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Parcours Académique</h1>
-            <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-5"></div>
-            <p class="text-slate-400 max-w-2xl mx-auto text-lg">De la technique vers l'ingénierie, avec une rigueur renforcée à chaque étape.</p>
+      <!-- 3 — Lycée Isaac Newton (Bac) -->
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <a href="https://lyceenewton.fr/" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-pomme.png" alt="Lycée Isaac Newton" class="timeline-logo">
+          </a>
+          <span class="timeline-date">2019 — 2022</span>
+          <h3>Baccalauréat</h3>
+          <p class="school">Lycée Isaac Newton — Clichy</p>
+          <p>
+            Obtention du baccalauréat avec découverte
+            de l'informatique et des sciences du numérique.
+            Premières bases en programmation et logique algorithmique.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Algorithmique</span>
+            <span class="timeline-tag">Numérique</span>
+            <span class="timeline-tag">Sciences</span>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <!-- TIMELINE -->
-    <section class="py-20 lg:py-28 bg-slate-50">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative">
-                <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-blue-400 via-blue-600 to-blue-900 hidden sm:block"></div>
-
-                <!-- CNAM -->
-                <div class="relative flex gap-4 sm:gap-8 pb-12 fade-in">
-                    <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white shadow-lg shadow-blue-600/30 text-sm"><i class="fas fa-graduation-cap"></i></div>
-                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition">
-                        <div class="flex flex-wrap items-center gap-2 mb-3">
-                            <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">2023 – 2026</span>
-                            <span class="px-2.5 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-md animate-pulse">En cours</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1">École d'Ingénieur — ITII / CNAM Paris</h3>
-                        <p class="text-blue-600 font-semibold text-sm mb-3">Cycle ingénieur en alternance — Génie Mécanique & Production Industrielle</p>
-                        <p class="text-slate-600 text-sm leading-relaxed">Formation ingénieur généraliste orientée génie mécanique et production industrielle. Alternance au sein d'environnements industriels exigeants.</p>
-                        <div class="mt-4 flex flex-wrap gap-2">
-                            <a href="experiences.html#agco" class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 text-xs font-semibold hover:bg-blue-100 transition">
-                                <svg viewBox="0 0 320 120" class="h-3.5 w-auto"><polygon points="10,100 60,10 110,100" fill="#CC0000"/><text x="125" y="78" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="62" fill="#1a1a1a">AGCO</text></svg>
-                                AGCO
-                            </a>
-                            <a href="experiences.html#metaflon" class="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-lg text-amber-700 text-xs font-semibold hover:bg-amber-100 transition">
-                                <svg viewBox="0 0 200 200" class="h-4 w-auto"><circle cx="100" cy="100" r="70" fill="none" stroke="#2B5C8A" stroke-width="5"/><text x="100" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="72" fill="#2B5C8A">M</text></svg>
-                                Metaflon
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Prepa ATS -->
-                <div class="relative flex gap-4 sm:gap-8 pb-12 fade-in">
-                    <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-blue-700 rounded-full flex items-center justify-center text-white shadow-lg text-sm"><i class="fas fa-brain"></i></div>
-                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition">
-                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">2022 – 2023</span>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1 mt-3">Classe Préparatoire ATS</h3>
-                        <p class="text-blue-600 font-semibold text-sm mb-3">Adaptation Technicien Supérieur — Préparation aux Grandes Écoles</p>
-                        <p class="text-slate-600 text-sm leading-relaxed">Renforcement intensif : mathématiques, physique, sciences de l'ingénieur.</p>
-                    </div>
-                </div>
-
-                <!-- BTS -->
-                <div class="relative flex gap-4 sm:gap-8 pb-12 fade-in">
-                    <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center text-white shadow-lg text-sm"><i class="fas fa-flask"></i></div>
-                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition">
-                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">2020 – 2022</span>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1 mt-3">BTS Techniques Physiques pour l'Industrie et le Laboratoire</h3>
-                        <p class="text-blue-600 font-semibold text-sm mb-3">BTS TPIL</p>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">Formation polyvalente : mesures physiques, instrumentation et applications industrielles.</p>
-                        <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-xl p-5 border border-slate-100">
-                            <p class="text-sm font-bold text-slate-800 mb-3"><i class="fas fa-building text-blue-500 mr-2"></i>Stage — Speed Bâtiment <span class="font-normal text-slate-500">(Bureau d'études thermiques)</span></p>
-                            <div class="grid sm:grid-cols-2 gap-2 text-sm text-slate-600">
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Études thermiques réglementaires</div>
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Simulations thermiques dynamiques</div>
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Études de ponts thermiques</div>
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Audits énergétiques</div>
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Calculs de déperditions</div>
-                                <div class="flex items-start"><i class="fas fa-check text-blue-500 mr-2 mt-0.5 text-xs"></i>Rédaction de rapports techniques</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Bac -->
-                <div class="relative flex gap-4 sm:gap-8 fade-in">
-                    <div class="relative z-10 flex-shrink-0 w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white shadow-lg text-sm"><i class="fas fa-book"></i></div>
-                    <div class="flex-1 bg-white rounded-2xl p-6 shadow-md border border-slate-200 hover:shadow-lg transition">
-                        <span class="px-2.5 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-md">2019 – 2020</span>
-                        <h3 class="text-lg font-bold text-slate-900 mb-1 mt-3">Baccalauréat Scientifique</h3>
-                        <p class="text-blue-600 font-semibold text-sm mb-3">Option Sciences de l'Ingénieur</p>
-                        <p class="text-slate-600 text-sm leading-relaxed">Fondation d'un parcours orienté ingénierie mécanique et industrielle.</p>
-                    </div>
-                </div>
-            </div>
+      <!-- 4 — JDC (Collège) -->
+      <div class="timeline-item">
+        <div class="timeline-card">
+          <a href="https://pia.ac-paris.fr/serail/jcms/s1_2862494/fr/accueil" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-jdc.png" alt="JDC" class="timeline-logo">
+          </a>
+          <span class="timeline-date">2015 — 2019</span>
+          <h3>Brevet des Collèges</h3>
+          <p class="school">JDC — Paris</p>
+          <p>
+            Obtention du Diplôme National du Brevet.
+            Premiers pas dans le monde du numérique
+            et découverte de la programmation.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Brevet</span>
+            <span class="timeline-tag">Découverte</span>
+            <span class="timeline-tag">Numérique</span>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <footer class="bg-slate-950 py-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi</p>
-                <div class="flex items-center gap-4">
-                    <a href="mailto:hmaidi.adam@gmail.com" class="text-slate-500 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-slate-500 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+  </section>
 
-    <script>
-        document.getElementById('menu-btn').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden');const i=document.getElementById('menu-btn').querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
-        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-        document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-    </script>
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-copyright">© 2026 Adam Hmaidi — Tous droits réservés</div>
+  </footer>
+
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Animation au scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.timeline-item').forEach((item, i) => {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(30px)';
+      item.style.transition = `all 0.6s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.15}s`;
+      observer.observe(item);
+    });
+  </script>
 </body>
 </html>

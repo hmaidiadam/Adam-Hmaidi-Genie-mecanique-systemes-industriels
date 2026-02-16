@@ -1,127 +1,540 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Adam Hmaidi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
-    <style>
-        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
-        .hero-bg{position:relative;background:#0a0a0a;overflow:hidden}
-        .hero-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(59,130,246,.12),transparent),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(139,92,246,.08),transparent)}
-        .noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-        .glass{background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06)}
-        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Adam Hmaidi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Contact Grid ===== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 3rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ===== Info Cards ===== */
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+    .contact-info-item:hover {
+      border-color: #1b6ca8;
+      box-shadow: 0 4px 20px rgba(27,108,168,0.08);
+      transform: translateY(-2px);
+    }
+    .contact-icon {
+      width: 44px; height: 44px;
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .contact-info-item h4 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #64748b;
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+    .contact-info-item p {
+      font-size: 0.95rem;
+      color: #091728;
+      font-weight: 500;
+    }
+    .contact-info-item a {
+      color: #091728;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-info-item a:hover {
+      color: #1b6ca8;
+    }
+
+    /* ===== Availability badge ===== */
+    .availability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.2rem;
+      background: rgba(21,128,61,0.06);
+      border: 1px solid rgba(21,128,61,0.15);
+      border-radius: 10px;
+      font-size: 0.88rem;
+      color: #15803d;
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+    .availability-dot {
+      width: 8px; height: 8px;
+      background: #15803d;
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.4); }
+    }
+
+    /* ===== Formulaire ===== */
+    .contact-form {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2.2rem;
+      box-shadow: 0 4px 24px rgba(9,23,40,0.04);
+    }
+    .contact-form h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #091728;
+      margin-bottom: 0.3rem;
+    }
+    .contact-form .form-subtitle {
+      font-size: 0.88rem;
+      color: #64748b;
+      margin-bottom: 1.6rem;
+      line-height: 1.5;
+    }
+    .form-group {
+      position: relative;
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #091728;
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.3px;
+    }
+    .form-group label .required {
+      color: #dc2626;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+      color: #091728;
+      background: #fafbfd;
+      transition: all 0.25s ease;
+      outline: none;
+      box-sizing: border-box;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #1b6ca8;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(27,108,168,0.08);
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #94a3b8;
+    }
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+    .form-group .error-msg {
+      font-size: 0.78rem;
+      color: #dc2626;
+      margin-top: 0.3rem;
+      display: none;
+    }
+    .form-group.invalid input,
+    .form-group.invalid textarea {
+      border-color: #dc2626;
+      box-shadow: 0 0 0 3px rgba(220,38,38,0.08);
+    }
+    .form-group.invalid .error-msg {
+      display: block;
+    }
+    .form-group.valid input,
+    .form-group.valid textarea {
+      border-color: #15803d;
+    }
+
+    /* ===== Submit Button ===== */
+    .btn-submit {
+      width: 100%;
+      padding: 0.85rem 2rem;
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(27,108,168,0.3);
+    }
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+    .btn-loading {
+      pointer-events: none;
+      opacity: 0.75;
+    }
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      right: 1.2rem; top: 50%;
+      transform: translateY(-50%);
+      width: 18px; height: 18px;
+      border: 2.5px solid rgba(255,255,255,0.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: translateY(-50%) rotate(360deg); }
+    }
+
+    /* ===== Confidentialité ===== */
+    .form-privacy {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      text-align: center;
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    .form-privacy svg {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 0.3rem;
+    }
+
+    /* ===== Modal ===== */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(9,23,40,0.55);
+      backdrop-filter: blur(8px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1; pointer-events: all;
+    }
+    .modal-box {
+      background: #fff;
+      border-radius: 16px;
+      padding: 2.5rem 2.2rem;
+      max-width: 420px; width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(9,23,40,0.18);
+      transform: translateY(24px) scale(0.96);
+      transition: transform 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .modal-overlay.active .modal-box {
+      transform: translateY(0) scale(1);
+    }
+    .modal-icon {
+      width: 68px; height: 68px;
+      border-radius: 50%;
+      margin: 0 auto 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem;
+    }
+    .modal-icon.success { background: rgba(21,128,61,0.1); color: #15803d; }
+    .modal-icon.error   { background: rgba(220,38,38,0.1); color: #dc2626; }
+    .modal-box h3 {
+      font-size: 1.25rem; font-weight: 800; color: #091728;
+      margin-bottom: 0.5rem;
+    }
+    .modal-box p {
+      font-size: 0.92rem; color: #64748b; line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+    .modal-close {
+      display: inline-block;
+      padding: 0.7rem 2rem;
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      color: #fff;
+      border: none; border-radius: 8px;
+      font-weight: 700; font-size: 0.88rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer; transition: all 0.25s;
+    }
+    .modal-close:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 15px rgba(27,108,168,0.3);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .contact-form {
+        padding: 1.5rem;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans text-slate-800 bg-black antialiased">
+<body>
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Accueil</a>
-                    <a href="parcours.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Parcours</a>
-                    <a href="experiences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Expériences</a>
-                    <a href="projets.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Projets</a>
-                    <a href="competences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Compétences</a>
-                    <a href="contact.html" class="nav-link active text-white text-sm font-medium transition">Contact</a>
-                </div>
-                <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
-            </div>
+  <!-- NAV -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">A<span>.</span>H</a>
+    <div class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="parcours.html">Parcours</a>
+      <a href="experiences.html">Expériences</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <h1>Contact</h1>
+    <p>Un projet, une question, une opportunité ? N'hésitez pas à me contacter.</p>
+  </header>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="contact-grid">
+
+      <!-- COLONNE GAUCHE : Infos -->
+      <div>
+        <div class="contact-info-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email</h4>
+            <p><a href="mailto:hmaidi.adam@gmail.com">hmaidi.adam@gmail.com</a></p>
+          </div>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-xl border-t border-white/5">
-            <div class="px-4 py-3 space-y-1">
-                <a href="index.html" class="block text-white/70 py-2 text-sm">Accueil</a>
-                <a href="parcours.html" class="block text-white/70 py-2 text-sm">Parcours</a>
-                <a href="experiences.html" class="block text-white/70 py-2 text-sm">Expériences</a>
-                <a href="projets.html" class="block text-white/70 py-2 text-sm">Projets</a>
-                <a href="competences.html" class="block text-white/70 py-2 text-sm">Compétences</a>
-                <a href="contact.html" class="block text-white py-2 text-sm font-medium">Contact</a>
-            </div>
+
+        <div class="contact-info-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Localisation</h4>
+            <p>Île-de-France, France</p>
+          </div>
         </div>
-    </nav>
 
-    <section class="hero-bg min-h-screen flex items-center pt-16">
-        <div class="noise"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10 w-full">
-
-            <div class="text-center mb-14 fade-in">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">Contact</h1>
-                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-5"></div>
-                <p class="text-white/40 max-w-lg mx-auto text-lg">N'hésitez pas à me contacter pour toute opportunité ou échange.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-3 gap-6 mb-16 fade-in">
-                <a href="mailto:hmaidi.adam@gmail.com" class="group glass rounded-2xl p-8 text-center hover:bg-white/[.06] transition">
-                    <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-blue-500/20 transition"><i class="fas fa-envelope text-blue-400 text-2xl"></i></div>
-                    <h3 class="font-bold text-white text-lg mb-2">Email</h3>
-                    <p class="text-blue-300 text-sm break-all">hmaidi.adam@gmail.com</p>
-                </a>
-                <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="group glass rounded-2xl p-8 text-center hover:bg-white/[.06] transition">
-                    <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-blue-500/20 transition"><i class="fab fa-linkedin text-blue-400 text-2xl"></i></div>
-                    <h3 class="font-bold text-white text-lg mb-2">LinkedIn</h3>
-                    <p class="text-blue-300 text-sm">Adam Hmaidi</p>
-                </a>
-                <div class="glass rounded-2xl p-8 text-center">
-                    <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mx-auto mb-5"><i class="fas fa-location-dot text-blue-400 text-2xl"></i></div>
-                    <h3 class="font-bold text-white text-lg mb-2">Localisation</h3>
-                    <p class="text-blue-300 text-sm">Paris — Île-de-France</p>
-                </div>
-            </div>
-
-            <div class="fade-in">
-                <div class="glass rounded-2xl p-8">
-                    <h2 class="text-2xl font-bold text-white mb-6">Envoyer un message</h2>
-                    <form action="#" method="POST" class="space-y-5">
-                        <div class="grid sm:grid-cols-2 gap-5">
-                            <div>
-                                <label class="block text-white/50 text-sm font-medium mb-1.5">Nom</label>
-                                <input type="text" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition" placeholder="Votre nom">
-                            </div>
-                            <div>
-                                <label class="block text-white/50 text-sm font-medium mb-1.5">Email</label>
-                                <input type="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition" placeholder="votre@email.com">
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-white/50 text-sm font-medium mb-1.5">Objet</label>
-                            <input type="text" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition" placeholder="Sujet">
-                        </div>
-                        <div>
-                            <label class="block text-white/50 text-sm font-medium mb-1.5">Message</label>
-                            <textarea rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition resize-none" placeholder="Votre message..."></textarea>
-                        </div>
-                        <button type="submit" class="inline-flex items-center px-8 py-3 bg-white text-slate-900 font-bold rounded-full hover:shadow-xl hover:shadow-white/10 hover:scale-105 transition">
-                            <i class="fas fa-paper-plane mr-2 text-blue-600"></i>Envoyer
-                        </button>
-                    </form>
-                </div>
-            </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">💼</div>
+          <div>
+            <h4>LinkedIn</h4>
+            <p><a href="https://linkedin.com/in/adam-hmaidi" target="_blank" rel="noopener">linkedin.com/in/adam-hmaidi</a></p>
+          </div>
         </div>
-    </section>
 
-    <footer class="bg-black py-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-white/30 text-sm">&copy; 2026 Adam Hmaidi</p>
-                <div class="flex items-center gap-4">
-                    <a href="mailto:hmaidi.adam@gmail.com" class="text-white/30 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-white/30 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
+        <div class="availability-badge">
+          <span class="availability-dot"></span>
+          Disponible pour une alternance
         </div>
-    </footer>
+      </div>
 
-    <script>
-        document.getElementById('menu-btn').addEventListener('click',()=>{document.getElementById('mobile-menu').classList.toggle('hidden');const i=document.getElementById('menu-btn').querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
-        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-        document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
-    </script>
+      <!-- COLONNE DROITE : Formulaire -->
+      <div>
+        <form id="contactForm" class="contact-form"
+              action="https://formspree.io/f/mlgwndbk"
+              method="POST">
+
+          <h3>Envoyez-moi un message</h3>
+          <p class="form-subtitle">Tous les champs marqués d'un * sont obligatoires.</p>
+
+          <!-- Honeypot anti-spam -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="form-group">
+            <label for="name">Nom complet <span class="required">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Jean Dupont" required>
+            <span class="error-msg">Veuillez saisir votre nom.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Adresse email <span class="required">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jean.dupont@email.com" required>
+            <span class="error-msg">Veuillez saisir une adresse email valide.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Sujet</label>
+            <input type="text" id="subject" name="subject" placeholder="Opportunité, question, collaboration...">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message <span class="required">*</span></label>
+            <textarea id="message" name="message" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
+            <span class="error-msg">Veuillez saisir votre message.</span>
+          </div>
+
+          <button type="submit" class="btn-submit" id="submitBtn">
+            ✉️ Envoyer le message
+          </button>
+
+          <p class="form-privacy">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Vos données sont sécurisées et ne seront jamais partagées avec des tiers.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL SUCCÈS -->
+  <div class="modal-overlay" id="modalSuccess">
+    <div class="modal-box">
+      <div class="modal-icon success">✓</div>
+      <h3>Message envoyé avec succès !</h3>
+      <p>Merci pour votre message. Je vous répondrai dans les plus brefs délais.</p>
+      <button class="modal-close" onclick="closeModal('modalSuccess')">Parfait, merci !</button>
+    </div>
+  </div>
+
+  <!-- MODAL ERREUR -->
+  <div class="modal-overlay" id="modalError">
+    <div class="modal-box">
+      <div class="modal-icon error">✕</div>
+      <h3>Erreur lors de l'envoi</h3>
+      <p>Une erreur s'est produite. Veuillez réessayer ou m'envoyer un email directement à <strong>hmaidi.adam@gmail.com</strong>.</p>
+      <button class="modal-close" onclick="closeModal('modalError')">Réessayer</button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-copyright">© 2026 Adam Hmaidi — Tous droits réservés</div>
+  </footer>
+
+  <script>
+    // ===== Navbar scroll =====
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // ===== Modals =====
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) overlay.classList.remove('active');
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.active').forEach(m => m.classList.remove('active'));
+      }
+    });
+
+    // ===== Validation =====
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.querySelectorAll('[required]').forEach(field => {
+      field.addEventListener('blur', () => validateField(field));
+      field.addEventListener('input', () => {
+        const group = field.closest('.form-group');
+        group.classList.remove('invalid');
+        if (field.value.trim()) {
+          if (field.type === 'email') {
+            if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim())) {
+              group.classList.add('valid');
+            } else {
+              group.classList.remove('valid');
+            }
+          } else {
+            group.classList.add('valid');
+          }
+        } else {
+          group.classList.remove('valid');
+        }
+      });
+    });
+
+    function validateField(field) {
+      const group = field.closest('.form-group');
+      let valid = true;
+
+      if (!field.value.trim()) {
+        valid = false;
+      }
+      if (field.type === 'email' && field.value.trim()) {
+        valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value.trim());
+      }
+
+      group.classList.toggle('invalid', !valid);
+      group.classList.toggle('valid', valid && field.value.trim() !== '');
+      return valid;
+    }
+
+    function validateAll() {
+      let allValid = true;
+      form.querySelectorAll('[required]').forEach(field => {
+        if (!validateField(field)) allValid = false;
+      });
+      return allValid;
+    }
+
+    // ===== Envoi AJAX via Formspree =====
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!validateAll()) return;
+
+      submitBtn.classList.add('btn-loading');
+      submitBtn.textContent = 'Envoi en cours...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          openModal('modalSuccess');
+          form.reset();
+          form.querySelectorAll('.form-group').forEach(g => {
+            g.classList.remove('valid', 'invalid');
+          });
+        } else {
+          throw new Error('Erreur serveur');
+        }
+      } catch (error) {
+        console.error('Erreur envoi:', error);
+        openModal('modalError');
+      } finally {
+        submitBtn.classList.remove('btn-loading');
+        submitBtn.textContent = '✉️ Envoyer le message';
+      }
+    });
+  </script>
 </body>
 </html>

@@ -1,224 +1,195 @@
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adam Hmaidi | Apprenti Ingénieur Génie Mécanique</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','system-ui','sans-serif']}}}}</script>
-    <style>
-        .hero-section{position:relative;min-height:100vh;background:#0a0a0a;overflow:hidden}
-        .hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(59,130,246,.15),transparent),radial-gradient(ellipse 60% 50% at 80% 50%,rgba(99,102,241,.1),transparent),radial-gradient(ellipse 50% 40% at 20% 80%,rgba(14,165,233,.08),transparent)}
-        .orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.5;animation:orbFloat 20s ease-in-out infinite}
-        .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(59,130,246,.2),transparent);top:-10%;right:-5%;animation-delay:0s}
-        .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(139,92,246,.15),transparent);bottom:-5%;left:-5%;animation-delay:-7s}
-        .orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(14,165,233,.12),transparent);top:40%;left:30%;animation-delay:-14s}
-        @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(.95)}75%{transform:translate(40px,20px) scale(1.02)}}
-        .noise{position:absolute;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-        @keyframes bounce-slow{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}.bounce-slow{animation:bounce-slow 2s ease-in-out infinite}
-        .nav-link{position:relative}.nav-link::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}.nav-link:hover::after,.nav-link.active::after{width:100%}
-        .fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}.fade-in.visible{opacity:1;transform:translateY(0)}
-        .logo-card{transition:all .3s ease}.logo-card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
-        .glass{background:rgba(255,255,255,.03);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.06)}
-        .tag-glow{box-shadow:0 0 20px rgba(59,130,246,.15)}
-        ::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:#0a0a0a}::-webkit-scrollbar-thumb{background:#3b82f6;border-radius:4px}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adam Hmaidi | Apprenti Ingénieur Génie Mécanique</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .hero {
+      flex-direction: row !important;
+      text-align: left !important;
+      gap: 3rem;
+      padding: 8rem 4rem 5rem !important;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .hero-tags {
+      justify-content: flex-start !important;
+    }
+    .hero-buttons {
+      justify-content: flex-start !important;
+    }
+    .hero-visual {
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .hero-visual img {
+      width: 400px;
+      height: 270px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 2px solid rgba(100,181,246,0.15);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      animation: float 6s ease-in-out infinite;
+    }
+    @media (max-width: 960px) {
+      .hero {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 7rem 1.5rem 4rem !important;
+      }
+      .hero-text {
+        align-items: center;
+      }
+      .hero-tags {
+        justify-content: center !important;
+      }
+      .hero-buttons {
+        justify-content: center !important;
+      }
+      .hero-visual img {
+        width: 320px;
+        height: 215px;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-visual img {
+        width: 260px;
+        height: 175px;
+      }
+    }
+  </style>
 </head>
-<body class="font-sans text-slate-800 bg-white antialiased">
+<body>
 
-    <!-- NAV -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="text-white font-extrabold text-xl tracking-tight">A<span class="text-blue-400">.</span>H</a>
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="nav-link active text-white text-sm font-medium transition">Accueil</a>
-                    <a href="parcours.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Parcours</a>
-                    <a href="experiences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Expériences</a>
-                    <a href="projets.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Projets</a>
-                    <a href="competences.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Compétences</a>
-                    <a href="contact.html" class="nav-link text-white/70 hover:text-white text-sm font-medium transition">Contact</a>
-                </div>
-                <button id="menu-btn" class="md:hidden text-white text-xl"><i class="fas fa-bars"></i></button>
-            </div>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-black/90 backdrop-blur-xl border-t border-white/5">
-            <div class="px-4 py-3 space-y-1">
-                <a href="index.html" class="block text-white py-2 text-sm font-medium">Accueil</a>
-                <a href="parcours.html" class="block text-white/70 hover:text-white py-2 text-sm font-medium">Parcours</a>
-                <a href="experiences.html" class="block text-white/70 hover:text-white py-2 text-sm font-medium">Expériences</a>
-                <a href="projets.html" class="block text-white/70 hover:text-white py-2 text-sm font-medium">Projets</a>
-                <a href="competences.html" class="block text-white/70 hover:text-white py-2 text-sm font-medium">Compétences</a>
-                <a href="contact.html" class="block text-white/70 hover:text-white py-2 text-sm font-medium">Contact</a>
-            </div>
-        </div>
-    </nav>
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">A<span>.</span>H</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Accueil</a>
+      <a href="parcours.html">Parcours</a>
+      <a href="experiences.html">Expériences</a>
+      <a href="projets.html">Projets</a>
+      <a href="competences.html">Compétences</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+  </nav>
 
-    <!-- HERO -->
-    <section class="hero-section flex items-center">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-        <div class="noise"></div>
+  <section class="hero">
+    <div class="hero-text">
+      <span class="hero-badge">En alternance — CNAM Paris</span>
+      <h1>Adam<br>Hmaidi</h1>
+      <h2>Apprenti Ingénieur en Génie Mécanique</h2>
+      <div class="hero-tags">
+        <span class="tag">Production</span>
+        <span class="tag">Méthodes</span>
+        <span class="tag">Qualité</span>
+      </div>
+      <p class="hero-intro">
+        Apprenti ingénieur en génie mécanique (CNAM Paris), spécialisé en amélioration de la performance industrielle
+        en environnement <strong>grande série</strong> et <strong>PME</strong>.
+        J'interviens sur des enjeux de <strong>productivité</strong>, <strong>qualité</strong>,
+        <strong>fiabilité des process</strong> et <strong>méthodes industrielles</strong>,
+        avec une approche <strong>terrain</strong> et <strong>orientée résultats</strong>.
+      </p>
+      <div class="hero-buttons">
+        <a href="parcours.html" class="btn btn-primary">Mon parcours</a>
+        <a href="projets.html" class="btn btn-outline">Mes projets</a>
+        <a href="contact.html" class="btn btn-outline">Contact</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="img/hero-meca.jpg" alt="Conception mécanique">
+    </div>
+  </section>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center px-4 py-2 rounded-full glass text-blue-300 text-xs font-medium mb-8 tag-glow">
-                    <span class="w-2 h-2 bg-emerald-400 rounded-full mr-2.5 animate-pulse"></span>
-                    En alternance — CNAM Paris
-                </div>
+  <!-- Entreprises d'accueil -->
+  <section class="section">
+    <h2>Entreprises d'accueil</h2>
+    <p class="subtitle">Cliquez sur un logo pour découvrir l'expérience correspondante.</p>
+    <div class="entreprises-grid">
+      <div class="entreprise-card">
+        <a href="https://www.agcocorp.com/" target="_blank" rel="noopener noreferrer">
+          <img src="img/logo-agco.png" alt="AGCO — Massey Ferguson">
+        </a>
+        <h3>AGCO — Massey Ferguson</h3>
+        <p>Grande série — Machinisme agricole</p>
+        <a href="experiences.html" class="btn btn-outline-dark">Voir l'expérience</a>
+      </div>
+      <div class="entreprise-card">
+        <a href="https://www.metaflon.fr/" target="_blank" rel="noopener noreferrer">
+          <img src="img/logo-metaflon.png" alt="Metaflon">
+        </a>
+        <h3>Metaflon</h3>
+        <p>PME industrielle — Raccords & Flexibles</p>
+        <a href="experiences.html" class="btn btn-outline-dark">Voir l'expérience</a>
+      </div>
+    </div>
+  </section>
 
-                <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black text-white leading-[0.95] mb-5 tracking-tight">
-                    Adam<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-violet-400 to-blue-400">Hmaidi</span>
-                </h1>
+  <!-- En un coup d'œil -->
+  <section class="section section-alt">
+    <h2>En un coup d'œil</h2>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number">Bac+5</div>
+        <div class="stat-label">Diplôme d'ingénieur en cours — CNAM</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Alternances en environnement industriel</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Projets techniques structurants</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Langues pratiquées</div>
+      </div>
+    </div>
+  </section>
 
-                <h2 class="text-xl sm:text-2xl font-semibold text-white/60 mb-6">
-                    Apprenti Ingénieur en Génie Mécanique
-                </h2>
+  <!-- Domaines & mots-clés -->
+  <section class="section">
+    <h2>Domaines & mots-clés</h2>
+    <p class="subtitle">Mots-clés alignés avec mes projets et compétences terrain.</p>
+    <div class="chips">
+      <span class="chip">Performance industrielle</span>
+      <span class="chip">Amélioration continue</span>
+      <span class="chip">Production</span>
+      <span class="chip">Méthodes industrielles</span>
+      <span class="chip">Qualité & métrologie</span>
+      <span class="chip">Traçabilité</span>
+      <span class="chip">Gestion des stocks</span>
+      <span class="chip">ERP industriel</span>
+      <span class="chip">Cartographie des flux</span>
+      <span class="chip">5S / Kaizen / PDCA</span>
+      <span class="chip">Standardisation</span>
+      <span class="chip">CAO — SolidWorks</span>
+    </div>
+  </section>
 
-                <div class="flex flex-wrap gap-2.5 mb-8">
-                    <span class="px-3.5 py-1.5 glass text-blue-300 text-sm rounded-full font-medium">Production</span>
-                    <span class="px-3.5 py-1.5 glass text-violet-300 text-sm rounded-full font-medium">Méthodes</span>
-                    <span class="px-3.5 py-1.5 glass text-sky-300 text-sm rounded-full font-medium">Qualité</span>
-                </div>
+  <footer class="site-footer">
+    <div class="footer-confidentialite">
+      <strong>Confidentialité</strong> — Pour des raisons de confidentialité, certains projets industriels ne peuvent pas être détaillés.
+      Les descriptions présentes visent à illustrer les <strong>compétences</strong> et <strong>méthodes</strong> mises en œuvre.
+      Les visuels et données sont <strong>anonymisés</strong> ou <strong>représentatifs</strong>.
+    </div>
+    <div class="footer-copyright">© 2026 Adam Hmaidi — Tous droits réservés</div>
+  </footer>
 
-                <p class="text-white/40 text-lg leading-relaxed mb-10 max-w-2xl">
-                    Passionné par l'optimisation des systèmes industriels, j'interviens à la croisée
-                    de la production, de la qualité et de l'ingénierie pour améliorer durablement
-                    la performance opérationnelle.
-                </p>
-
-                <div class="flex flex-wrap gap-4">
-                    <a href="parcours.html" class="group inline-flex items-center px-7 py-3.5 bg-white text-slate-900 font-bold rounded-full transition hover:shadow-xl hover:shadow-white/10 hover:scale-105">
-                        <i class="fas fa-route mr-2.5 text-blue-600"></i> Mon parcours
-                        <i class="fas fa-arrow-right ml-2.5 group-hover:translate-x-1 transition-transform text-sm"></i>
-                    </a>
-                    <a href="projets.html" class="inline-flex items-center px-7 py-3.5 glass text-white font-bold rounded-full transition hover:bg-white/10">
-                        <i class="fas fa-diagram-project mr-2.5"></i> Mes projets
-                    </a>
-                    <a href="contact.html" class="inline-flex items-center px-7 py-3.5 glass text-white font-bold rounded-full transition hover:bg-white/10">
-                        <i class="fas fa-envelope mr-2.5"></i> Contact
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 bounce-slow">
-            <div class="flex flex-col items-center text-white/20">
-                <span class="text-[10px] mb-1 tracking-[.25em] uppercase">Scroll</span>
-                <i class="fas fa-chevron-down text-xs"></i>
-            </div>
-        </div>
-    </section>
-
-    <!-- ENTREPRISES PARTENAIRES -->
-    <section class="py-24 lg:py-32 bg-white">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">Entreprises d'accueil</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full mb-5"></div>
-                <p class="text-slate-500 max-w-2xl mx-auto">Cliquez sur un logo pour découvrir l'expérience correspondante.</p>
-            </div>
-
-            <div class="grid sm:grid-cols-2 gap-8 max-w-3xl mx-auto fade-in">
-                <a href="experiences.html#agco" class="logo-card bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col items-center text-center group">
-                    <div class="w-full h-32 flex items-center justify-center mb-6">
-                        <svg viewBox="0 0 320 120" class="h-24 w-auto" xmlns="http://www.w3.org/2000/svg">
-                            <polygon points="10,100 60,10 110,100" fill="#CC0000"/>
-                            <line x1="32" y1="55" x2="78" y2="55" stroke="white" stroke-width="2.5"/>
-                            <line x1="28" y1="63" x2="82" y2="63" stroke="white" stroke-width="2.5"/>
-                            <line x1="24" y1="71" x2="86" y2="71" stroke="white" stroke-width="2.5"/>
-                            <line x1="20" y1="79" x2="90" y2="79" stroke="white" stroke-width="2.5"/>
-                            <line x1="16" y1="87" x2="94" y2="87" stroke="white" stroke-width="2.5"/>
-                            <line x1="12" y1="95" x2="98" y2="95" stroke="white" stroke-width="2.5"/>
-                            <text x="125" y="78" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="62" fill="#1a1a1a" letter-spacing="2">AGCO</text>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-1">AGCO — Massey Ferguson</h3>
-                    <p class="text-slate-500 text-sm mb-4">Grande série — Machinisme agricole</p>
-                    <span class="inline-flex items-center text-blue-600 font-semibold text-sm">
-                        Voir l'expérience <i class="fas fa-arrow-right ml-1.5 group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                </a>
-
-                <a href="experiences.html#metaflon" class="logo-card bg-white rounded-2xl p-8 border border-slate-200 shadow-sm flex flex-col items-center text-center group">
-                    <div class="w-full h-32 flex items-center justify-center mb-6">
-                        <svg viewBox="0 0 200 200" class="h-28 w-auto" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M 100 8 A 92 92 0 0 1 180 42" fill="none" stroke="#2B5C8A" stroke-width="12" stroke-linecap="round"/>
-                            <path d="M 188 108 A 92 92 0 0 1 155 178" fill="none" stroke="#2B5C8A" stroke-width="12" stroke-linecap="round"/>
-                            <path d="M 95 193 A 92 92 0 0 1 25 155" fill="none" stroke="#2B5C8A" stroke-width="12" stroke-linecap="round"/>
-                            <path d="M 15 88 A 92 92 0 0 1 50 22" fill="none" stroke="#2B5C8A" stroke-width="12" stroke-linecap="round"/>
-                            <circle cx="100" cy="100" r="70" fill="none" stroke="#2B5C8A" stroke-width="5"/>
-                            <circle cx="100" cy="100" r="58" fill="none" stroke="#2B5C8A" stroke-width="2"/>
-                            <text x="100" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-weight="bold" font-size="72" fill="#2B5C8A">M</text>
-                        </svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-1">Metaflon</h3>
-                    <p class="text-slate-500 text-sm mb-4">PME industrielle — Raccords & Flexibles</p>
-                    <span class="inline-flex items-center text-amber-600 font-semibold text-sm">
-                        Voir l'expérience <i class="fas fa-arrow-right ml-1.5 group-hover:translate-x-1 transition-transform"></i>
-                    </span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- APERCU RAPIDE -->
-    <section class="py-24 lg:py-32 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-14 fade-in">
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">En un coup d'œil</h2>
-                <div class="w-16 h-1 bg-gradient-to-r from-blue-500 to-violet-500 mx-auto rounded-full"></div>
-            </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center hover:shadow-lg transition">
-                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-graduation-cap text-blue-600 text-xl"></i></div>
-                    <h3 class="text-3xl font-extrabold text-slate-900 mb-1">Bac+5</h3>
-                    <p class="text-slate-500 text-sm">Diplôme d'ingénieur en cours — CNAM</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center hover:shadow-lg transition">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-industry text-emerald-600 text-xl"></i></div>
-                    <h3 class="text-3xl font-extrabold text-slate-900 mb-1">2</h3>
-                    <p class="text-slate-500 text-sm">Alternances en environnement industriel</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center hover:shadow-lg transition">
-                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-diagram-project text-amber-600 text-xl"></i></div>
-                    <h3 class="text-3xl font-extrabold text-slate-900 mb-1">5+</h3>
-                    <p class="text-slate-500 text-sm">Projets techniques structurants</p>
-                </div>
-                <div class="bg-white rounded-2xl p-6 border border-slate-200 text-center hover:shadow-lg transition">
-                    <div class="w-14 h-14 bg-violet-100 rounded-2xl flex items-center justify-center mx-auto mb-4"><i class="fas fa-language text-violet-600 text-xl"></i></div>
-                    <h3 class="text-3xl font-extrabold text-slate-900 mb-1">4</h3>
-                    <p class="text-slate-500 text-sm">Langues pratiquées</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 py-8 border-t border-white/5">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-sm">&copy; 2026 Adam Hmaidi — Tous droits réservés</p>
-                <div class="flex items-center gap-4">
-                    <a href="mailto:hmaidi.adam@gmail.com" class="text-slate-500 hover:text-blue-400 transition"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.linkedin.com/in/adam-hmaidi-4a73591ba" target="_blank" class="text-slate-500 hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        const menuBtn=document.getElementById('menu-btn'),mobileMenu=document.getElementById('mobile-menu');
-        menuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');const i=menuBtn.querySelector('i');i.classList.toggle('fa-bars');i.classList.toggle('fa-xmark');});
-        const navbar=document.getElementById('navbar');
-        window.addEventListener('scroll',()=>{if(window.scrollY>50){navbar.style.background='rgba(10,10,10,0.8)';navbar.style.backdropFilter='blur(20px)';navbar.style.boxShadow='0 1px 0 rgba(255,255,255,0.05)';}else{navbar.style.background='transparent';navbar.style.backdropFilter='none';navbar.style.boxShadow='none';}});
-        const fadeEls=document.querySelectorAll('.fade-in');
-        const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');});},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-        fadeEls.forEach(el=>obs.observe(el));
-    </script>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+  </script>
 </body>
 </html>
