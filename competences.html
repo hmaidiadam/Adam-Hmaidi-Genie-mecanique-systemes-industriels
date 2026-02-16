@@ -6,6 +6,317 @@
   <title>Compétences | Adam Hmaidi</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ===== Skills Grid ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.8rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== Skills Block Card ===== */
+    .skills-block {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 2px 12px rgba(9, 23, 40, 0.04);
+    }
+    .skills-block::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1b6ca8, #2389d4, #64b5f6);
+      border-radius: 16px 16px 0 0;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .skills-block:hover {
+      border-color: #1b6ca8;
+      box-shadow: 0 12px 40px rgba(27, 108, 168, 0.1);
+      transform: translateY(-6px);
+    }
+    .skills-block:hover::before {
+      opacity: 1;
+    }
+
+    /* Icon decoratif */
+    .skills-block h3 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #091728;
+      margin-bottom: 1.3rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 2px solid #f0f5fc;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      line-height: 1.4;
+    }
+    .skills-block h3::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      border-radius: 3px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+    .skills-block:hover h3::before {
+      transform: rotate(45deg) scale(1.2);
+    }
+
+    /* List items */
+    .skills-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .skills-block ul li {
+      position: relative;
+      font-size: 0.88rem;
+      color: #475569;
+      line-height: 1.75;
+      padding: 0.55rem 0 0.55rem 1.6rem;
+      border-bottom: 1px solid #f8fafc;
+      transition: all 0.3s ease;
+    }
+    .skills-block ul li:last-child {
+      border-bottom: none;
+    }
+    .skills-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border: 2px solid #1b6ca8;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    .skills-block ul li:hover {
+      color: #091728;
+      padding-left: 2rem;
+    }
+    .skills-block ul li:hover::before {
+      background: #1b6ca8;
+      box-shadow: 0 0 0 3px rgba(27, 108, 168, 0.15);
+    }
+
+    /* ===== Tools Grid (pills) ===== */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .tool-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.55rem 1.1rem;
+      background: linear-gradient(135deg, #f0f5fc, #e8f0fe);
+      color: #1b6ca8;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 10px;
+      border: 1px solid rgba(27, 108, 168, 0.12);
+      transition: all 0.3s ease;
+      cursor: default;
+      letter-spacing: 0.2px;
+    }
+    .tool-item::before {
+      content: '⚙';
+      margin-right: 0.45rem;
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+    .tool-item:hover {
+      background: linear-gradient(135deg, #1b6ca8, #2389d4);
+      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(27, 108, 168, 0.2);
+      border-color: transparent;
+    }
+    .tool-item:hover::before {
+      opacity: 1;
+    }
+
+    /* ===== Langues Section ===== */
+    .langues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .langue-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      box-shadow: 0 2px 12px rgba(9, 23, 40, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .langue-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #1b6ca8, #2389d4);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .langue-card:hover {
+      border-color: #1b6ca8;
+      box-shadow: 0 12px 40px rgba(27, 108, 168, 0.1);
+      transform: translateY(-6px);
+    }
+    .langue-card:hover::after {
+      transform: scaleX(1);
+    }
+    .langue-flag {
+      font-size: 2.8rem;
+      margin-bottom: 0.8rem;
+      transition: transform 0.4s ease;
+      line-height: 1;
+    }
+    .langue-card:hover .langue-flag {
+      transform: scale(1.15);
+    }
+    .langue-card h4 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #091728;
+      margin-bottom: 0.3rem;
+    }
+    .langue-card p {
+      font-size: 0.85rem;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* Langue level bar */
+    .langue-level-bar {
+      width: 100%;
+      height: 6px;
+      background: #f0f5fc;
+      border-radius: 3px;
+      margin-top: 0.9rem;
+      overflow: hidden;
+    }
+    .langue-level-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #1b6ca8, #2389d4);
+      border-radius: 3px;
+      width: 0;
+      transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .langue-card.visible .langue-level-fill {
+      width: var(--level);
+    }
+
+    /* ===== Centres d'Intérêt ===== */
+    .interets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      justify-content: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .interet {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.5rem;
+      background: #fff;
+      color: #091728;
+      font-size: 0.88rem;
+      font-weight: 700;
+      border-radius: 50px;
+      border: 2px solid #e2e8f0;
+      transition: all 0.35s ease;
+      cursor: default;
+      letter-spacing: 0.2px;
+    }
+    .interet::before {
+      font-size: 1rem;
+    }
+    .interet:nth-child(1)::before { content: '🚗'; }
+    .interet:nth-child(2)::before { content: '✈️'; }
+    .interet:nth-child(3)::before { content: '🔧'; }
+    .interet:nth-child(4)::before { content: '🚄'; }
+    .interet:nth-child(5)::before { content: '🏗️'; }
+    .interet:nth-child(6)::before { content: '🌍'; }
+    .interet:nth-child(7)::before { content: '🧘'; }
+    .interet:hover {
+      border-color: #1b6ca8;
+      background: linear-gradient(135deg, #f0f5fc, #e8f0fe);
+      color: #1b6ca8;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(27, 108, 168, 0.12);
+    }
+
+    /* ===== Section headings inside sections ===== */
+    .section h2 {
+      text-align: center;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: #091728;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .section h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background: linear-gradient(90deg, #1b6ca8, #2389d4);
+      border-radius: 2px;
+      margin: 0.7rem auto 0;
+    }
+
+    /* ===== Scroll Reveal ===== */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .reveal-item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      .langues-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .langues-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,7 +345,7 @@
     <div class="skills-grid">
 
       <!-- Production / Méthodes -->
-      <div class="skills-block">
+      <div class="skills-block reveal-item">
         <h3>Production • Méthodes • Performance</h3>
         <ul>
           <li>Lean Manufacturing : Kaizen, 5S, PDCA, management visuel</li>
@@ -45,7 +356,7 @@
       </div>
 
       <!-- Qualité / Métrologie -->
-      <div class="skills-block">
+      <div class="skills-block reveal-item">
         <h3>Qualité &amp; Métrologie</h3>
         <ul>
           <li>Audit qualité &amp; conformité (ISO 1502, exigences dimensionnelles)</li>
@@ -56,7 +367,7 @@
       </div>
 
       <!-- ERP / SI -->
-      <div class="skills-block">
+      <div class="skills-block reveal-item">
         <h3>ERP / Données / SI Industriel</h3>
         <ul>
           <li>Cahier des charges : recueil du besoin, entretiens utilisateurs, structuration par modules</li>
@@ -66,7 +377,7 @@
       </div>
 
       <!-- CAO -->
-      <div class="skills-block">
+      <div class="skills-block reveal-item">
         <h3>CAO / Génie Mécanique</h3>
         <ul>
           <li>CAO : SolidWorks (modélisation, mise à jour et harmonisation de plans)</li>
@@ -76,7 +387,7 @@
       </div>
 
       <!-- Gestion de projet -->
-      <div class="skills-block">
+      <div class="skills-block reveal-item">
         <h3>Gestion de Projet &amp; Communication</h3>
         <ul>
           <li>Analyse de processus &amp; cadrage : objectifs, contraintes, continuité d'activité</li>
@@ -86,8 +397,8 @@
         </ul>
       </div>
 
-      <!-- OUTILS & LOGICIELS — Modernisé en grille de pills -->
-      <div class="skills-block">
+      <!-- OUTILS & LOGICIELS -->
+      <div class="skills-block reveal-item">
         <h3>Outils &amp; Logiciels</h3>
         <div class="tools-grid">
           <span class="tool-item">SolidWorks</span>
@@ -108,25 +419,29 @@
   <section class="section section-alt">
     <h2>Langues</h2>
     <div class="langues-grid">
-      <div class="langue-card">
+      <div class="langue-card reveal-item">
         <div class="langue-flag">🇫🇷</div>
         <h4>Français</h4>
         <p>Langue maternelle</p>
+        <div class="langue-level-bar"><div class="langue-level-fill" style="--level: 100%"></div></div>
       </div>
-      <div class="langue-card">
+      <div class="langue-card reveal-item">
         <div class="langue-flag">🇸🇦</div>
         <h4>Arabe</h4>
         <p>Courant</p>
+        <div class="langue-level-bar"><div class="langue-level-fill" style="--level: 85%"></div></div>
       </div>
-      <div class="langue-card">
+      <div class="langue-card reveal-item">
         <div class="langue-flag">🇬🇧</div>
         <h4>Anglais</h4>
         <p>Niveau B2</p>
+        <div class="langue-level-bar"><div class="langue-level-fill" style="--level: 65%"></div></div>
       </div>
-      <div class="langue-card">
+      <div class="langue-card reveal-item">
         <div class="langue-flag">🇮🇹</div>
         <h4>Italien</h4>
         <p>Niveau A2</p>
+        <div class="langue-level-bar"><div class="langue-level-fill" style="--level: 30%"></div></div>
       </div>
     </div>
   </section>
@@ -135,13 +450,13 @@
   <section class="section">
     <h2>Centres d'Intérêt</h2>
     <div class="interets">
-      <span class="interet">Automobile</span>
-      <span class="interet">Aéronautique</span>
-      <span class="interet">Mécanique</span>
-      <span class="interet">Transport</span>
-      <span class="interet">Génie Civil</span>
-      <span class="interet">Voyages</span>
-      <span class="interet">Bien-être</span>
+      <span class="interet reveal-item">Automobile</span>
+      <span class="interet reveal-item">Aéronautique</span>
+      <span class="interet reveal-item">Mécanique</span>
+      <span class="interet reveal-item">Transport</span>
+      <span class="interet reveal-item">Génie Civil</span>
+      <span class="interet reveal-item">Voyages</span>
+      <span class="interet reveal-item">Bien-être</span>
     </div>
   </section>
 
@@ -156,8 +471,23 @@
   </footer>
 
   <script>
+    // Navbar scroll
     window.addEventListener('scroll', () => {
       document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Scroll reveal with stagger
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal-item').forEach((el, i) => {
+      el.style.transitionDelay = `${(i % 6) * 0.1}s`;
+      observer.observe(el);
     });
   </script>
 </body>
