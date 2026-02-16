@@ -111,6 +111,16 @@
       box-shadow: 0 4px 16px rgba(27,108,168,0.15);
     }
 
+    /* Logos group (deux logos côte à côte) */
+    .timeline-logos-group {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+    }
+    .timeline-item:nth-child(odd) .timeline-logos-group {
+      justify-content: flex-end;
+    }
+
     /* Date badge */
     .timeline-date {
       display: inline-block;
@@ -168,6 +178,35 @@
       border: 1px solid rgba(27,108,168,0.1);
     }
 
+    /* Stage sub-block inside a card */
+    .stage-sub {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px dashed #e2e8f0;
+    }
+    .stage-sub h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #091728;
+      margin-bottom: 0.5rem;
+    }
+    .stage-sub ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .stage-sub ul li {
+      font-size: 0.82rem;
+      color: #64748b;
+      padding: 0.2rem 0;
+      line-height: 1.6;
+    }
+    .stage-sub ul li::before {
+      content: '→ ';
+      color: #1b6ca8;
+      font-weight: 600;
+    }
+
     /* ===== Responsive ===== */
     @media (max-width: 768px) {
       .timeline::before {
@@ -186,6 +225,9 @@
       }
       .timeline-item:nth-child(odd) .timeline-logo {
         margin-left: 0;
+      }
+      .timeline-item:nth-child(odd) .timeline-logos-group {
+        justify-content: flex-start;
       }
       .timeline-item:nth-child(odd) .timeline-tags {
         justify-content: flex-start;
@@ -212,100 +254,107 @@
   <!-- HEADER -->
   <header class="page-header">
     <h1>Parcours</h1>
-    <p>Mon parcours académique, de la découverte de l'informatique à l'école d'ingénieurs.</p>
+    <p>Mon parcours académique, du baccalauréat à l'école d'ingénieurs.</p>
   </header>
 
   <!-- TIMELINE -->
   <section class="section">
     <div class="timeline">
 
-      <!-- 1 — CNAM (actuel) -->
+      <!-- 1 — École d'Ingénieur ITII / CNAM (actuel) -->
       <div class="timeline-item current">
         <div class="timeline-card">
-          <a href="https://ecole-ingenieur.cnam.fr" target="_blank" rel="noopener noreferrer">
-            <img src="img/logo-cnam.png" alt="Le CNAM" class="timeline-logo">
-          </a>
-          <span class="timeline-date">2025 — Présent</span>
-          <h3>Cycle Ingénieur Informatique</h3>
-          <p class="school">Le CNAM — École d'Ingénieurs</p>
+          <div class="timeline-logos-group">
+            <a href="https://ecole-ingenieur.cnam.fr" target="_blank" rel="noopener noreferrer">
+              <img src="img/logo-cnam.png" alt="CNAM Paris" class="timeline-logo">
+            </a>
+            <a href="https://www.itii-iledefrance.fr" target="_blank" rel="noopener noreferrer">
+              <img src="img/itii-idf.svg" alt="ITII Île-de-France" class="timeline-logo">
+            </a>
+          </div>
+          <span class="timeline-date">2023 – 2026</span>
+          <h3>École d'Ingénieur — ITII / CNAM Paris</h3>
+          <p class="school">Cycle ingénieur en alternance — Génie Mécanique & Production Industrielle</p>
           <p>
-            Formation d'ingénieur en informatique en alternance.
-            Approfondissement des compétences en architecture logicielle,
-            gestion de projets et systèmes d'information.
+            Formation ingénieur généraliste orientée génie mécanique et production industrielle.
+            Alternance au sein d'environnements industriels exigeants.
           </p>
           <div class="timeline-tags">
             <span class="timeline-tag">Alternance</span>
-            <span class="timeline-tag">Architecture SI</span>
-            <span class="timeline-tag">Gestion de projet</span>
+            <span class="timeline-tag">Génie Mécanique</span>
+            <span class="timeline-tag">Production Industrielle</span>
           </div>
         </div>
       </div>
 
-      <!-- 2 — ENCPB -->
+      <!-- 2 — Prépa ATS -->
       <div class="timeline-item">
         <div class="timeline-card">
-          <a href="https://encpb.org/" target="_blank" rel="noopener noreferrer">
-            <img src="img/logo-encpb.png" alt="ENCPB Lycée Pierre-Gilles de Gennes" class="timeline-logo">
+          <a href="https://encpb.org" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-encpb.png" alt="ENCPB — Lycée Pierre-Gilles de Gennes" class="timeline-logo">
           </a>
-          <span class="timeline-date">2022 — 2024</span>
-          <h3>BTS SIO — Option SLAM</h3>
-          <p class="school">ENCPB — Lycée Pierre-Gilles de Gennes, Paris</p>
+          <span class="timeline-date">2022 – 2023</span>
+          <h3>Classe Préparatoire ATS</h3>
+          <p class="school">Adaptation Technicien Supérieur — Préparation aux Grandes Écoles</p>
           <p>
-            Solutions Logicielles et Applications Métiers.
-            Développement d'applications, bases de données,
-            cybersécurité et gestion de projets informatiques.
-            Stages en entreprise.
+            Renforcement intensif : mathématiques, physique, sciences de l'ingénieur.
           </p>
           <div class="timeline-tags">
-            <span class="timeline-tag">Java</span>
-            <span class="timeline-tag">SQL</span>
-            <span class="timeline-tag">PHP</span>
-            <span class="timeline-tag">Cybersécurité</span>
-            <span class="timeline-tag">Projet</span>
+            <span class="timeline-tag">Mathématiques</span>
+            <span class="timeline-tag">Physique</span>
+            <span class="timeline-tag">Sciences de l'Ingénieur</span>
           </div>
         </div>
       </div>
 
-      <!-- 3 — Lycée Isaac Newton (Bac) -->
+      <!-- 3 — BTS TPIL + Stage Speed Bâtiment -->
       <div class="timeline-item">
         <div class="timeline-card">
-          <a href="https://lyceenewton.fr/" target="_blank" rel="noopener noreferrer">
-            <img src="img/logo-pomme.png" alt="Lycée Isaac Newton" class="timeline-logo">
+          <a href="https://lyceenewton.fr" target="_blank" rel="noopener noreferrer">
+            <img src="img/logo-pomme.png" alt="Lycée — BTS TPIL" class="timeline-logo">
           </a>
-          <span class="timeline-date">2019 — 2022</span>
-          <h3>Baccalauréat</h3>
-          <p class="school">Lycée Isaac Newton — Clichy</p>
+          <span class="timeline-date">2020 – 2022</span>
+          <h3>BTS Techniques Physiques pour l'Industrie et le Laboratoire</h3>
+          <p class="school">BTS TPIL</p>
           <p>
-            Obtention du baccalauréat avec découverte
-            de l'informatique et des sciences du numérique.
-            Premières bases en programmation et logique algorithmique.
+            Formation polyvalente : mesures physiques, instrumentation et applications industrielles.
           </p>
           <div class="timeline-tags">
-            <span class="timeline-tag">Algorithmique</span>
-            <span class="timeline-tag">Numérique</span>
-            <span class="timeline-tag">Sciences</span>
+            <span class="timeline-tag">Mesures Physiques</span>
+            <span class="timeline-tag">Instrumentation</span>
+            <span class="timeline-tag">Applications Industrielles</span>
+          </div>
+
+          <!-- Stage Speed Bâtiment -->
+          <div class="stage-sub">
+            <h4>Stage — Speed Bâtiment (Bureau d'études thermiques)</h4>
+            <ul>
+              <li>Études thermiques réglementaires</li>
+              <li>Simulations thermiques dynamiques</li>
+              <li>Études de ponts thermiques</li>
+              <li>Audits énergétiques</li>
+              <li>Calculs de déperditions</li>
+              <li>Rédaction de rapports techniques</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <!-- 4 — JDC (Collège) -->
+      <!-- 4 — Bac S -->
       <div class="timeline-item">
         <div class="timeline-card">
           <a href="https://pia.ac-paris.fr/serail/jcms/s1_2862494/fr/accueil" target="_blank" rel="noopener noreferrer">
             <img src="img/logo-jdc.png" alt="JDC" class="timeline-logo">
           </a>
-          <span class="timeline-date">2015 — 2019</span>
-          <h3>Brevet des Collèges</h3>
-          <p class="school">JDC — Paris</p>
+          <span class="timeline-date">2019 – 2020</span>
+          <h3>Baccalauréat Scientifique</h3>
+          <p class="school">Option Sciences de l'Ingénieur</p>
           <p>
-            Obtention du Diplôme National du Brevet.
-            Premiers pas dans le monde du numérique
-            et découverte de la programmation.
+            Fondation d'un parcours orienté ingénierie mécanique et industrielle.
           </p>
           <div class="timeline-tags">
-            <span class="timeline-tag">Brevet</span>
-            <span class="timeline-tag">Découverte</span>
-            <span class="timeline-tag">Numérique</span>
+            <span class="timeline-tag">Sciences de l'Ingénieur</span>
+            <span class="timeline-tag">Ingénierie Mécanique</span>
           </div>
         </div>
       </div>
