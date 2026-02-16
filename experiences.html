@@ -58,6 +58,42 @@
     .exp-projet-link:hover .arrow {
       transform: translateX(3px);
     }
+
+    /* ===== Sous-catégories missions ===== */
+    .mission-category {
+      margin-bottom: 1.4rem;
+    }
+    .mission-category:last-child {
+      margin-bottom: 0;
+    }
+    .mission-category h5 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid rgba(27,108,168,0.1);
+      display: inline-block;
+    }
+    .mission-category ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .mission-category ul li {
+      position: relative;
+      padding: 0.3rem 0 0.3rem 1.3rem;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    .mission-category ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
@@ -99,32 +135,51 @@
         </a>
         <div>
           <h3>AGCO — Massey Ferguson</h3>
-          <span class="exp-tag">Alternance</span>
+          <span class="exp-tag">Grande série</span>
         </div>
       </div>
 
-      <p class="exp-subtitle">Apprenti Ingénieur — Amélioration continue & Performance industrielle</p>
-      <p class="exp-role">Beauvais · 2025 — Présent</p>
+      <p class="exp-subtitle">Apprenti Ingénieur — Amélioration Continue / Production</p>
+      <p class="exp-role">Alternance — Cycle ingénieur CNAM</p>
 
       <div class="exp-section">
         <h4>🏭 L'entreprise</h4>
         <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          AGCO Corporation est un leader mondial de la conception, fabrication et distribution
-          de machines agricoles. Le site de Beauvais (Massey Ferguson) est l'un des plus importants
-          d'Europe pour la production de tracteurs en <strong>grande série</strong>.
+          Environnement industriel complexe et structuré, au sein d'un leader mondial du machinisme agricole.
+          Production grande série de tracteurs avec des exigences élevées en matière de qualité, sécurité
+          et performance opérationnelle.
         </p>
       </div>
 
       <div class="exp-section">
         <h4>🎯 Missions principales</h4>
-        <ul>
-          <li>Analyse et optimisation des flux de production sur les lignes d'assemblage</li>
-          <li>Animation de chantiers d'amélioration continue (Kaizen, 5S, PDCA)</li>
-          <li>Étude préparatoire pour l'intégration de véhicules à guidage automatique (AGV)</li>
-          <li>Mise en place du management visuel et standardisation des postes</li>
-          <li>Formation et accompagnement des opérateurs aux nouvelles méthodes</li>
-          <li>Suivi des indicateurs de performance et reporting à la hiérarchie</li>
-        </ul>
+
+        <div class="mission-category">
+          <h5>Amélioration Continue</h5>
+          <ul>
+            <li>Lean Manufacturing &amp; chantiers Kaizen</li>
+            <li>Chantiers 5S en zones de production</li>
+            <li>Contrôle des bonnes pratiques Lean</li>
+            <li>Gestion de projets d'amélioration</li>
+          </ul>
+        </div>
+
+        <div class="mission-category">
+          <h5>Production &amp; Logistique</h5>
+          <ul>
+            <li>Optimisation des chaînes de montage</li>
+            <li>Préparation à l'intégration d'AGV</li>
+            <li>Cartographie des flux logistiques</li>
+          </ul>
+        </div>
+
+        <div class="mission-category">
+          <h5>Formation &amp; Intégration</h5>
+          <ul>
+            <li>Formations Lean, Ergonomie, 5S</li>
+            <li>Accompagnement des nouveaux arrivants</li>
+          </ul>
+        </div>
       </div>
 
       <div class="exp-section">
@@ -134,23 +189,12 @@
           <span class="chip">Kaizen</span>
           <span class="chip">5S</span>
           <span class="chip">PDCA</span>
-          <span class="chip">VSM</span>
-          <span class="chip">Chronoanalyse</span>
           <span class="chip">Management visuel</span>
-          <span class="chip">KPI / SQCDP</span>
-          <span class="chip">Ergonomie</span>
+          <span class="chip">Cartographie des flux</span>
           <span class="chip">AGV</span>
+          <span class="chip">Ergonomie</span>
+          <span class="chip">Formation</span>
         </div>
-      </div>
-
-      <div class="exp-section">
-        <h4>📊 Environnement</h4>
-        <ul>
-          <li>Production grande série — cadence élevée</li>
-          <li>Équipes pluridisciplinaires (production, qualité, logistique, méthodes)</li>
-          <li>Travail terrain en bord de ligne et en salle de réunion</li>
-          <li>Reporting régulier à la direction industrielle</li>
-        </ul>
       </div>
 
       <!-- Projets liés -->
@@ -158,10 +202,10 @@
         <h4>📁 Projets associés</h4>
         <div class="exp-projets-grid">
           <a href="projets.html#projet-agv" class="exp-projet-link">
-            Intégration AGV en production <span class="arrow">→</span>
+            Projet AGV <span class="arrow">→</span>
           </a>
           <a href="projets.html#projet-kaizen" class="exp-projet-link">
-            Chantiers Kaizen & 5S <span class="arrow">→</span>
+            Projet Kaizen &amp; 5S <span class="arrow">→</span>
           </a>
         </div>
       </div>
@@ -177,58 +221,78 @@
         </a>
         <div>
           <h3>Metaflon</h3>
-          <span class="exp-tag">Stage</span>
+          <span class="exp-tag">PME industrielle</span>
         </div>
       </div>
 
-      <p class="exp-subtitle">Stagiaire Ingénieur — Méthodes, Qualité & Système d'information</p>
-      <p class="exp-role">Raccords & Flexibles industriels · 2024</p>
+      <p class="exp-subtitle">Chargé d'Affaires Qualité / Ingénierie Industrielle</p>
+      <p class="exp-role">Alternance — Cycle ingénieur CNAM</p>
 
       <div class="exp-section">
         <h4>🏭 L'entreprise</h4>
         <p style="font-size:0.92rem; color:var(--text-secondary); line-height:1.7;">
-          Metaflon est une PME industrielle spécialisée dans la fabrication et la distribution
-          de raccords et flexibles pour l'industrie. Environnement à taille humaine avec
-          des enjeux de <strong>structuration</strong>, de <strong>traçabilité</strong> et de <strong>qualité</strong>.
+          PME spécialisée dans la fabrication de raccords et flexibles industriels,
+          travaillant à la commande avec une très forte variété de références.
         </p>
       </div>
 
       <div class="exp-section">
         <h4>🎯 Missions principales</h4>
-        <ul>
-          <li>Rédaction du cahier des charges pour la modernisation de l'ERP interne (GestProd — WinDev)</li>
-          <li>Audit des processus métier par service (stocks, production, expédition, facturation)</li>
-          <li>Modélisation CAO et migration des plans techniques sous SolidWorks</li>
-          <li>Mise en place du système de métrologie et des procédures qualité (ISO 1502)</li>
-          <li>Structuration de la traçabilité matière par numéro de coulée</li>
-          <li>Organisation et étiquetage des zones de stockage</li>
-        </ul>
+
+        <div class="mission-category">
+          <h5>ERP &amp; Système d'Information</h5>
+          <ul>
+            <li>Cahier des charges complet pour la modernisation de l'ERP</li>
+            <li>Gestion avancée des stocks &amp; traçabilité matière</li>
+            <li>Logique OF/OP, interconnexion Sellsy, QR codes</li>
+          </ul>
+        </div>
+
+        <div class="mission-category">
+          <h5>CAO / Conception Mécanique</h5>
+          <ul>
+            <li>Modélisation &amp; mise à jour de plans (SolidWorks)</li>
+            <li>Création de nouvelles références usinées</li>
+            <li>Harmonisation des plans &amp; gestion documentaire</li>
+          </ul>
+        </div>
+
+        <div class="mission-category">
+          <h5>Qualité / Métrologie</h5>
+          <ul>
+            <li>Audit qualité &amp; conformité ISO 1502</li>
+            <li>Vérification périodique des instruments</li>
+            <li>Registre métrologie &amp; certificats d'étalonnage</li>
+            <li>Procédures &amp; supports visuels atelier</li>
+          </ul>
+        </div>
+
+        <div class="mission-category">
+          <h5>Missions Transverses</h5>
+          <ul>
+            <li>Devis techniques avec la direction</li>
+            <li>Suivi fournisseurs &amp; gestion des litiges</li>
+            <li>Relation client, SAV &amp; personnalisations</li>
+            <li>Support technique à la production</li>
+          </ul>
+        </div>
       </div>
 
       <div class="exp-section">
         <h4>🔧 Compétences mobilisées</h4>
         <div class="chips">
-          <span class="chip">Cahier des charges</span>
-          <span class="chip">ERP / WinDev</span>
+          <span class="chip">Cahier des charges ERP</span>
           <span class="chip">SolidWorks</span>
           <span class="chip">CAO 3D</span>
           <span class="chip">Métrologie</span>
           <span class="chip">ISO 1502</span>
-          <span class="chip">Traçabilité</span>
+          <span class="chip">Traçabilité matière</span>
           <span class="chip">Gestion des stocks</span>
-          <span class="chip">Qualité</span>
-          <span class="chip">Cartographie processus</span>
+          <span class="chip">QR codes</span>
+          <span class="chip">Sellsy</span>
+          <span class="chip">Relation client</span>
+          <span class="chip">Devis techniques</span>
         </div>
-      </div>
-
-      <div class="exp-section">
-        <h4>📊 Environnement</h4>
-        <ul>
-          <li>PME industrielle — structure à taille humaine</li>
-          <li>Polyvalence : atelier, bureau d'études, gestion</li>
-          <li>Contact direct avec la direction et les opérateurs</li>
-          <li>Autonomie forte sur les projets confiés</li>
-        </ul>
       </div>
 
       <!-- Projets liés -->
@@ -236,13 +300,13 @@
         <h4>📁 Projets associés</h4>
         <div class="exp-projets-grid">
           <a href="projets.html#projet-erp" class="exp-projet-link">
-            Modernisation ERP GestProd <span class="arrow">→</span>
+            Projet ERP <span class="arrow">→</span>
           </a>
           <a href="projets.html#projet-cao" class="exp-projet-link">
-            CAO & Migration SolidWorks <span class="arrow">→</span>
+            Projet CAO <span class="arrow">→</span>
           </a>
           <a href="projets.html#projet-metrologie" class="exp-projet-link">
-            Métrologie & Qualité ISO <span class="arrow">→</span>
+            Projet Métrologie <span class="arrow">→</span>
           </a>
         </div>
       </div>
